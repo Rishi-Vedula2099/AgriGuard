@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-agri-green: #16A34A;
+  --color-agri-green-light: #22C55E;
+  --color-agri-green-dark: #15803D;
+  --color-agri-green-50: #F0FDF4;
+  --color-agri-green-100: #DCFCE7;
+  --color-agri-brown: #7C5E3C;
+  --color-agri-brown-light: #A0845C;
+  --color-agri-brown-dark: #5C4029;
+  --color-agri-yellow: #FACC15;
+  --color-agri-yellow-light: #FDE68A;
+  --color-agri-orange: #F97316;
+  --color-agri-red: #EF4444;
+  --color-agri-bg: #FAFDF7;
+  --color-agri-card: #FFFFFF;
+  --color-agri-text: #1A2E1A;
+  --color-agri-text-secondary: #4A6741;
+  --color-agri-border: #E2EFD9;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+}
+
+/* ─── Base Styles ─── */
+body {
+  font-family: var(--font-sans);
+  background: var(--color-agri-bg);
+  color: var(--color-agri-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Mobile-first container ─── */
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background: var(--color-agri-bg);
+  overflow-x: hidden;
+}
+
+/* ─── Glass Card ─── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 239, 217, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(22, 163, 74, 0.06);
+}
+
+/* ─── Gradient Backgrounds ─── */
+.gradient-green {
+  background: linear-gradient(135deg, #16A34A 0%, #22C55E 50%, #4ADE80 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(180deg, #16A34A 0%, #15803D 60%, #1A2E1A 100%);
+}
+
+.gradient-scan {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A2F 50%, #1A2E1A 100%);
+}
+
+/* ─── Severity Colors ─── */
+.severity-low {
+  color: #16A34A;
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.severity-medium {
+  color: #F97316;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.severity-high {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ─── Pulse Animation ─── */
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); }
+}
+
+.pulse-green {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* ─── Scan Line Animation ─── */
+@keyframes scan-line {
+  0% { top: 0; opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { top: calc(100% - 3px); opacity: 1; }
+}
+
+.scan-line {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+/* ─── Health Ring Animation ─── */
+@keyframes ring-fill {
+  from { stroke-dashoffset: 283; }
+}
+
+.ring-animate {
+  animation: ring-fill 1.5s ease-out forwards;
+}
+
+/* ─── Shimmer/Skeleton ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #E2EFD9 25%, #F0FDF4 50%, #E2EFD9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ─── Float Animation ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.float-animate {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Bottom Nav Safe Area ─── */
+.pb-nav {
+  padding-bottom: 80px;
+}
+
+/* ─── Scrollbar Hide ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Chat Bubble ─── */
+.chat-bubble-user {
+  background: linear-gradient(135deg, #16A34A, #22C55E);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.chat-bubble-bot {
+  background: white;
+  border: 1px solid #E2EFD9;
+  border-radius: 18px 18px 18px 4px;
+}

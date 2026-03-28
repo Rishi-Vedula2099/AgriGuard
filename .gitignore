@@ -9,15 +9,49 @@ coverage/
 # Production
 build/
 dist/
+.next/
+out/
 
-# Misc
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+*.egg-info/
+*.egg
+
+# IDEs
 .DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+
+# Storage (large files)
+storage/uploads/*
+storage/dataset/*
+storage/models/*.pt
+storage/models/*.pth
+storage/models/*.onnx
+storage/embeddings/*.faiss
+!storage/**/.gitkeep
+
+# OS
+Thumbs.db
+Desktop.ini
