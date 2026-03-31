@@ -13,6 +13,10 @@ from routers.auth import router as auth_router
 from routers.scan import router as scan_router
 from routers.history import router as history_router
 from routers.analytics import router as analytics_router
+from routers.learn_sessions import router as learn_sessions_router
+from routers.learn_bookings import router as learn_bookings_router
+from routers.learn_payments import router as learn_payments_router
+from routers.learn_interactions import router as learn_interactions_router
 
 settings = get_settings()
 
@@ -57,7 +61,10 @@ app.include_router(auth_router)
 app.include_router(scan_router)
 app.include_router(history_router)
 app.include_router(analytics_router)
-
+app.include_router(learn_sessions_router)
+app.include_router(learn_bookings_router)
+app.include_router(learn_payments_router)
+app.include_router(learn_interactions_router)
 
 @app.get("/")
 async def root():

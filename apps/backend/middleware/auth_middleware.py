@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from services.auth_service import AuthService
-from models.user import User
+from models.user import User, RoleEnum
 
 security = HTTPBearer()
 
@@ -48,3 +48,14 @@ async def get_current_user(
         )
 
     return user
+
+
+def require_role(role: RoleEnum):
+    def role_checker(user: User = Depends(get_current_user)):
+        if user.role != role:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=f"Access denied: Requires {role.value} role",
+            )
+        return user
+    return role_checker
