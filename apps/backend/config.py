@@ -39,6 +39,10 @@ class Settings(BaseSettings):
         "http://127.0.0.1:3000",
     ]
 
+    # Payment Gateway
+    RAZORPAY_KEY_ID: str = "rzp_test_placeholder"
+    RAZORPAY_KEY_SECRET: str = "rzp_test_secret_placeholder"
+
     class Config:
         env_file = "../../.env"
         env_file_encoding = "utf-8"
