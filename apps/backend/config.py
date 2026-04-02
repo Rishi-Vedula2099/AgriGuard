@@ -43,9 +43,18 @@ class Settings(BaseSettings):
     RAZORPAY_KEY_ID: str = "rzp_test_placeholder"
     RAZORPAY_KEY_SECRET: str = "rzp_test_secret_placeholder"
 
+    # Weather API
+    OPENWEATHER_API_KEY: str = "your_openweather_api_key"
+
+    # SMS Service (Twilio)
+    TWILIO_ACCOUNT_SID: str | None = None
+    TWILIO_AUTH_TOKEN: str | None = None
+    TWILIO_PHONE_NUMBER: str | None = None
+
     class Config:
         env_file = "../../.env"
         env_file_encoding = "utf-8"
+        extra = "ignore"
 
 
 @lru_cache()

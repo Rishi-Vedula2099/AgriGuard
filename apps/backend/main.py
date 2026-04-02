@@ -17,6 +17,7 @@ from routers.learn_sessions import router as learn_sessions_router
 from routers.learn_bookings import router as learn_bookings_router
 from routers.learn_payments import router as learn_payments_router
 from routers.learn_interactions import router as learn_interactions_router
+from routers.crops import router as crops_router
 
 settings = get_settings()
 
@@ -65,6 +66,7 @@ app.include_router(learn_sessions_router)
 app.include_router(learn_bookings_router)
 app.include_router(learn_payments_router)
 app.include_router(learn_interactions_router)
+app.include_router(crops_router)
 
 @app.get("/")
 async def root():
