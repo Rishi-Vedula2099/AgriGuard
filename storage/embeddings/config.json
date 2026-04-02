@@ -1,0 +1,25 @@
+{
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "retrieval_method": "keyword_index + semantic (when FAISS available)",
+  "num_documents": 117,
+  "num_keywords": 62,
+  "chunk_strategy": "section-based with 500-char max sub-chunks",
+  "sources": [
+    "irrigation_water.md",
+    "seasonal_crops.md",
+    "fertilizers_soil.md",
+    "yield_improvement.md",
+    "organic_pest_management.md",
+    "crop_diseases.md"
+  ],
+  "source_stats": {
+    "irrigation_water.md": 17,
+    "seasonal_crops.md": 16,
+    "fertilizers_soil.md": 19,
+    "yield_improvement.md": 18,
+    "organic_pest_management.md": 19,
+    "crop_diseases.md": 28
+  },
+  "total_characters": 46362
+}

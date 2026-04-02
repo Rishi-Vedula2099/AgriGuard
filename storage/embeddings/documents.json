@@ -1,0 +1,938 @@
+[
+  {
+    "content": "# Crop Diseases — Comprehensive Knowledge Base for AgroBuddy\n# Source: Indian Council of Agricultural Research (ICAR), TNAU Agritech Portal, PlantVillage",
+    "source": "crop_diseases.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 153,
+    "content_hash": "a3fafd141044"
+  },
+  {
+    "content": "Tomato Diseases",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 15,
+    "content_hash": "726fbe7626bf"
+  },
+  {
+    "content": "### Tomato Late Blight (Phytophthora infestans)\n- **Symptoms**: Dark brown to black water-soaked spots on leaves, stems, and fruits. White fuzzy growth on leaf undersides in humid conditions. Rapid browning and wilting of entire plants.\n- **Favorable Conditions**: Cool temperatures (15-22°C), high humidity (>90%), prolonged leaf wetness.\n- **Spread**: Wind-blown sporangia can travel several kilometers. Rain splash spreads spores. Survives in infected tubers and plant debris.\n- **Organic Treatment**:\n  - Bordeaux mixture (1% solution): Mix 100g copper sulphate + 100g lime in 10 liters water. Spray every 7-10 days.\n  - Neem oil spray: 5ml neem oil per liter water. Spray in evening.\n  - Trichoderma viride: Apply 5g per liter water as soil drench.\n  - Remove and burn all infected plant parts immediately.\n- **Chemical Treatment**:\n  - Mancozeb 75% WP: 2.5g per liter water. Spray every 10-12 days.\n  - Metalaxyl + Mancozeb (Ridomil Gold): 2g per liter water for severe cases.\n  - Chlorothalonil 75% WP: 2g per liter water.\n  - Safety: Wear gloves, mask, and full-sleeve clothing while spraying. Wait 7 days before harvest.\n- **Prevention**:\n  - Use resistant varieties (Arka Rakshak, Arka Samrat).\n  - Proper spacing: 60cm between plants, 90cm between rows.\n  - Avoid overhead irrigation; use drip irrigation.\n  - Stake plants to improve air circulation.\n  - Crop rotation: Don't plant tomato/potato in same field for 2 years.\n  - Remove volunteers and weed hosts.\n- **Economic Impact**: Can cause 50-100% crop loss if untreated.",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 1536,
+    "content_hash": "501b4b6444b3"
+  },
+  {
+    "content": "### Tomato Early Blight (Alternaria solani)\n- **Symptoms**: Dark brown concentric rings (bull's-eye pattern) on older leaves first. Yellowing around spots. Premature defoliation starting from bottom of plant. Can affect stems and fruits.\n- **Favorable Conditions**: Warm temperatures (24-29°C), alternating wet and dry periods.\n- **Organic Treatment**:\n  - Neem oil: 3-5ml per liter water, spray weekly.\n  - Baking soda spray: 1 tablespoon baking soda + few drops dish soap in 1 liter water.\n  - Mulch around base to prevent soil splash.\n  - Trichoderma harzianum: 5g per liter water.\n- **Chemical Treatment**:\n  - Chlorothalonil 75% WP: 2g per liter water.\n  - Mancozeb 75% WP: 2.5g per liter water.\n  - Safety: Follow label instructions strictly.\n- **Prevention**:\n  - Remove lower leaves touching soil.\n  - Stake and prune for air flow.\n  - Clean up plant debris after harvest.\n  - Use disease-free seeds/seedlings.",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 2,
+    "char_count": 918,
+    "content_hash": "4a9abc238c89"
+  },
+  {
+    "content": "### Tomato Bacterial Spot (Xanthomonas)\n- **Symptoms**: Small, dark, water-soaked spots on leaves (2-3mm). Yellow halos around spots. Raised, scabby spots on fruits. Leaf edges may turn brown.\n- **Organic Treatment**:\n  - Copper hydroxide spray (2g per liter).\n  - Remove severely infected plants.\n  - Avoid working with plants when wet.\n- **Chemical Treatment**:\n  - Streptomycin sulfate: 0.5g per liter water (only in severe cases).\n  - Copper oxychloride 50% WP: 3g per liter.\n- **Prevention**:\n  - Use certified disease-free seeds.\n  - Hot water seed treatment: Soak seeds at 50°C for 25 minutes.\n  - Practice 2-3 year crop rotation.",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 3,
+    "char_count": 637,
+    "content_hash": "ef66facb030a"
+  },
+  {
+    "content": "### Tomato Leaf Mold (Passalora fulva)\n- **Symptoms**: Yellow spots on upper leaf surface. Olive-green to brown velvety growth on undersides. Severe cases cause leaf curling and drop.\n- **Favorable Conditions**: High humidity >85%, temperatures 22-26°C.\n- **Treatment**: Improve ventilation. Remove affected leaves. Apply copper-based fungicide. Use resistant varieties.",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 4,
+    "char_count": 370,
+    "content_hash": "7efadf93944f"
+  },
+  {
+    "content": "### Tomato Septoria Leaf Spot (Septoria lycopersici)\n- **Symptoms**: Many small circular spots (2-5mm) with dark borders and gray centers. Tiny black specks (pycnidia) in centers. Starts on lower leaves.\n- **Treatment**: Remove lower affected leaves. Apply Mancozeb or Chlorothalonil. Avoid overhead watering. Mulch to prevent splash.",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 5,
+    "char_count": 334,
+    "content_hash": "8d141a258df2"
+  },
+  {
+    "content": "### Tomato Yellow Leaf Curl Virus (TYLCV)\n- **Symptoms**: Severe upward curling of leaves. Yellowing of leaf margins. Stunted growth. Reduced fruit set.\n- **Spread**: Transmitted by whiteflies (Bemisia tabaci).\n- **Treatment**: No cure once infected. Control whiteflies with yellow sticky traps, neem oil spray, or imidacloprid (chemical). Remove infected plants. Use resistant varieties (Arka Ananya).",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 6,
+    "char_count": 402,
+    "content_hash": "d423d178ff96"
+  },
+  {
+    "content": "### Tomato Mosaic Virus (ToMV)\n- **Symptoms**: Mottled light and dark green patches on leaves. Leaf distortion and curling. Stunted growth. Fruit may show internal browning.\n- **Spread**: Mechanically through contaminated hands, tools, and seeds.\n- **Treatment**: No cure. Remove infected plants. Wash hands with soap and milk solution. Disinfect tools with 10% bleach. Use virus-free certified seeds.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 1,
+    "sub_idx": 7,
+    "char_count": 406,
+    "content_hash": "dd99eda3691d"
+  },
+  {
+    "content": "Rice Diseases",
+    "source": "crop_diseases.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 13,
+    "content_hash": "3c6e08e5af48"
+  },
+  {
+    "content": "### Rice Blast (Magnaporthe oryzae)\n- **Symptoms**: Diamond-shaped lesions with gray centers and brown borders on leaves. Neck blast affects panicle base causing white/empty grains. Node blast causes stem breakage.\n- **Favorable Conditions**: Temperature 25-28°C, high humidity, heavy nitrogen fertilization, extended dew periods.\n- **Organic Treatment**:\n  - Pseudomonas fluorescens seed treatment: 10g per kg seed.\n  - Trichoderma viride: 4g per kg seed.\n  - Silicon-based fertilizer to strengthen cell walls.\n- **Chemical Treatment**:\n  - Tricyclazole 75% WP: 0.6g per liter water. Apply at tillering and before heading.\n  - Isoprothiolane 40% EC: 1.5ml per liter water.\n  - Carbendazim 50% WP: 1g per liter water.\n  - Safety: PHI (Pre-Harvest Interval) of 15 days.\n- **Prevention**:\n  - Use blast-resistant varieties (CO 51, ADT 43, IR 64).\n  - Balanced nitrogen: Don't exceed recommended dose (usually 120 kg N/ha).\n  - Seed treatment with carbendazim 2g/kg seed.\n  - Avoid continuous flooding.\n  - Remove and destroy stubble after harvest.\n- **Economic Impact**: Yield loss 10-30% in endemic areas, up to 100% in severe epidemics.",
+    "source": "crop_diseases.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 1136,
+    "content_hash": "42c7e934fd7e"
+  },
+  {
+    "content": "### Rice Brown Spot (Bipolaris oryzae / Helminthosporium oryzae)\n- **Symptoms**: Oval brown spots (1-14mm) on leaves with gray centers. Spots may merge. Seed discoloration. Can affect seedlings (seedling blight).\n- **Favorable Conditions**: Nutrient-deficient soils (especially low potassium and zinc), temperatures 25-30°C.\n- **Organic Treatment**:\n  - Pseudomonas fluorescens seed treatment.\n  - Apply zinc sulfate 25kg/ha to correct deficiency.\n  - Neem cake application: 150kg/ha.\n- **Chemical Treatment**:\n  - Mancozeb 75% WP: 2g per liter water.\n  - Edifenphos 50% EC: 1ml per liter water.\n  - Propiconazole 25% EC: 1ml per liter water.\n- **Prevention**:\n  - Soil test and correct nutrient deficiencies.\n  - Use healthy, certified seeds.\n  - Balanced fertilization including micronutrients.\n  - Remove volunteer rice plants.",
+    "source": "crop_diseases.md",
+    "section_idx": 2,
+    "sub_idx": 2,
+    "char_count": 830,
+    "content_hash": "fe40717e6553"
+  },
+  {
+    "content": "### Rice Sheath Blight (Rhizoctonia solani)\n- **Symptoms**: Oval/irregular greenish-gray water-soaked lesions on leaf sheaths near water line. Lesions enlarge and merge. White-gray fungal growth. Can cause lodging.\n- **Favorable Conditions**: Dense planting, excessive nitrogen, warm temperatures (28-32°C), continuous flooding.\n- **Chemical Treatment**: Hexaconazole 5% SC: 2ml per liter water. Carbendazim 50% WP: 1g/liter. Validamycin 3% SL: 2ml/liter.\n- **Prevention**: Optimum spacing (20x15cm). Avoid excess nitrogen. Drain standing water periodically.",
+    "source": "crop_diseases.md",
+    "section_idx": 2,
+    "sub_idx": 3,
+    "char_count": 558,
+    "content_hash": "5b90c7392434"
+  },
+  {
+    "content": "### Bacterial Leaf Blight of Rice (Xanthomonas oryzae)\n- **Symptoms**: Water-soaked yellow lesions starting from leaf tips or edges. Lesions turn straw-colored. Milky bacterial ooze on leaves in morning. Kresek (seedling wilt) in severe cases.\n- **Chemical Treatment**: Streptomycin sulphate + Tetracycline (300ppm). Copper oxychloride 50% WP.\n- **Prevention**: Use resistant varieties (Improved Samba Mahsuri). Balanced fertilizer. Avoid clipping during transplanting.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 2,
+    "sub_idx": 4,
+    "char_count": 474,
+    "content_hash": "8e96933f347e"
+  },
+  {
+    "content": "Wheat Diseases",
+    "source": "crop_diseases.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 14,
+    "content_hash": "572d9189c68d"
+  },
+  {
+    "content": "### Wheat Brown/Leaf Rust (Puccinia triticina)\n- **Symptoms**: Small, round, orange-brown pustules randomly distributed on leaf surfaces. Pustules release powdery spores when touched.\n- **Favorable Conditions**: Moderate temperatures (15-22°C), dew on leaves.\n- **Chemical Treatment**: Propiconazole 25% EC: 1ml per liter water at flag leaf stage. Tebuconazole 25.9% EC: 1ml/liter.\n- **Prevention**: Use rust-resistant varieties (HD 2967, HD 3086). Timely sowing (November). Avoid late nitrogen application.",
+    "source": "crop_diseases.md",
+    "section_idx": 3,
+    "sub_idx": 1,
+    "char_count": 507,
+    "content_hash": "70f42e9db5cd"
+  },
+  {
+    "content": "### Wheat Yellow/Stripe Rust (Puccinia striiformis)\n- **Symptoms**: Yellow-orange pustules arranged in stripes along leaf veins. More severe in cooler weather.\n- **Chemical Treatment**: Same as brown rust. Apply at first symptom appearance.\n- **Prevention**: Early sowing. Resistant varieties. Remove volunteer wheat.",
+    "source": "crop_diseases.md",
+    "section_idx": 3,
+    "sub_idx": 2,
+    "char_count": 317,
+    "content_hash": "2506f3118ebf"
+  },
+  {
+    "content": "### Wheat Powdery Mildew (Blumeria graminis)\n- **Symptoms**: White powdery patches on upper leaf surfaces. Later turns gray. Reduces photosynthesis.\n- **Chemical Treatment**: Sulphur 80% WP: 3g/liter. Propiconazole at flag leaf stage.\n\n### Karnal Bunt (Tilletia indica)\n- **Symptoms**: Partial conversion of grain to dark-colored, foul-smelling (fishy) spore mass. Affects a few grains per ear.\n- **Treatment**: Seed treatment with Carbendazim + Mancozeb. Avoid late sowing.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 3,
+    "sub_idx": 3,
+    "char_count": 479,
+    "content_hash": "3cf68a53a11a"
+  },
+  {
+    "content": "Potato Diseases",
+    "source": "crop_diseases.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 15,
+    "content_hash": "6dec9c0ccb7a"
+  },
+  {
+    "content": "### Potato Late Blight (Phytophthora infestans)\n- **Symptoms**: Same pathogen as tomato late blight. Dark brown water-soaked lesions on leaves. White mold on undersides. Tuber rot (reddish-brown granular rot).\n- **Chemical Treatment**: Mancozeb 75% WP: 2.5g/liter preventive spray. Cymoxanil + Mancozeb for curative action. Spray every 7-10 days during favorable conditions.\n- **Prevention**: Use certified disease-free seed potatoes. Hill up properly. Destroy cull piles. Harvest in dry weather.",
+    "source": "crop_diseases.md",
+    "section_idx": 4,
+    "sub_idx": 1,
+    "char_count": 496,
+    "content_hash": "3356768e4639"
+  },
+  {
+    "content": "### Potato Early Blight (Alternaria solani)\n- **Symptoms**: Same as tomato early blight. Brown concentric ring spots on lower leaves first.\n- **Treatment**: Same chemical options as tomato. Maintain adequate nutrition. Avoid plant stress.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 4,
+    "sub_idx": 2,
+    "char_count": 243,
+    "content_hash": "84f8926307cd"
+  },
+  {
+    "content": "Cotton Diseases\n\n### Cotton Bacterial Blight (Xanthomonas citri pv. malvacearum)\n- **Symptoms**: Angular water-soaked spots on leaves. Black arm on stems. Boll rot.\n- **Chemical Treatment**: Streptomycin 100ppm + Copper oxychloride 2.5g/liter.\n- **Prevention**: Use resistant varieties (Bunny, Brahma). Acid-delinting of seeds. Crop rotation.",
+    "source": "crop_diseases.md",
+    "section_idx": 5,
+    "sub_idx": 0,
+    "char_count": 342,
+    "content_hash": "4aef94c0f43b"
+  },
+  {
+    "content": "### Cotton Fusarium Wilt (Fusarium oxysporum f.sp. vasinfectum)\n- **Symptoms**: Progressive wilting starting from lower leaves. Yellowing. Brown discoloration of vascular tissue.\n- **Treatment**: Soil application of Trichoderma viride 2.5 kg/ha. Carbendazim soil drench for severe cases. Use resistant varieties.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 5,
+    "sub_idx": 1,
+    "char_count": 317,
+    "content_hash": "37ec07f79241"
+  },
+  {
+    "content": "Sugarcane Diseases\n\n### Sugarcane Red Rot (Colletotrichum falcatum)\n- **Symptoms**: Reddening of internal stalk tissue with white transverse bands. Drying of crown. Withering of inner leaves.\n- **Treatment**: Use resistant varieties. Hot water treatment of setts (50°C for 2 hours). Carbendazim sett treatment.\n\n### Sugarcane Smut (Sporisorium scitamineum)\n- **Symptoms**: Black whip-like structure emerging from growing point. Stunted growth.\n- **Treatment**: Resistant varieties only effective control. Remove and burn infected plants. Hot water treat setts.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 6,
+    "sub_idx": 0,
+    "char_count": 565,
+    "content_hash": "af6109e399c3"
+  },
+  {
+    "content": "Soybean Diseases\n\n### Soybean Rust (Phakopsora pachyrhizi)\n- **Symptoms**: Tan to brown lesions on lower leaves. Pustules on undersides. Premature defoliation.\n- **Chemical Treatment**: Propiconazole or Tebuconazole at R1-R3 stage.\n- **Prevention**: Early planting. Resistant varieties. Monitor regularly.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 7,
+    "sub_idx": 0,
+    "char_count": 310,
+    "content_hash": "4c6f271956b4"
+  },
+  {
+    "content": "Groundnut Diseases\n\n### Tikka Disease / Leaf Spot (Cercospora)\n- **Symptoms**: Dark brown circular spots on leaves. Severe defoliation reduces pod filling.\n- **Chemical Treatment**: Mancozeb 2.5g/liter at 30, 45, and 60 DAS.\n- **Prevention**: Use resistant varieties. Crop rotation with cereals.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 8,
+    "sub_idx": 0,
+    "char_count": 300,
+    "content_hash": "b3eb589c8561"
+  },
+  {
+    "content": "Grape Diseases\n\n### Grape Downy Mildew (Plasmopara viticola)\n- **Symptoms**: Yellow spots on upper leaf surface. White cottony growth on undersides. Fruit infection causes shrinking.\n- **Chemical Treatment**: Mancozeb preventive spray. Metalaxyl + Mancozeb for curative. Copper-based sprays.\n\n### Grape Powdery Mildew (Erysiphe necator)\n- **Symptoms**: White powdery growth on all green parts. Berry cracking.\n- **Chemical Treatment**: Sulphur 80% WP. Penconazole 10% EC. Avoid spraying sulphur above 35°C.\n\n---",
+    "source": "crop_diseases.md",
+    "section_idx": 9,
+    "sub_idx": 0,
+    "char_count": 511,
+    "content_hash": "3639aef8dc4e"
+  },
+  {
+    "content": "Mango Diseases\n\n### Mango Anthracnose (Colletotrichum gloeosporioides)\n- **Symptoms**: Black spots on flowers, leaves, and fruits. Fruit rot during transit.\n- **Chemical Treatment**: Carbendazim 1g/liter spray at flowering. Pre-harvest hot water treatment of fruits.\n\n### Mango Powdery Mildew (Oidium mangiferae)\n- **Symptoms**: White powdery coating on inflorescence. Flower and fruitlet drop.\n- **Chemical Treatment**: Sulphur 80% WP at panicle emergence. Repeat at 15-day intervals.",
+    "source": "crop_diseases.md",
+    "section_idx": 10,
+    "sub_idx": 0,
+    "char_count": 485,
+    "content_hash": "3e73822ae650"
+  },
+  {
+    "content": "# Fertilizer & Soil Health Guide — Knowledge Base for AgroBuddy\n# Source: ICAR, TNAU, Indian Fertilizer Association",
+    "source": "fertilizers_soil.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 115,
+    "content_hash": "1e7cf214870e"
+  },
+  {
+    "content": "Soil Testing\n\n### Importance\n- Get soil tested every 2-3 years from nearest Krishi Vigyan Kendra (KVK)\n- Soil test helps determine exact nutrient requirements\n- Saves money by avoiding unnecessary fertilizer application\n- Government-subsidized testing available at ₹10-50 per sample",
+    "source": "fertilizers_soil.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 282,
+    "content_hash": "4447f4b297d9"
+  },
+  {
+    "content": "### How to Collect Soil Sample\n1. Collect samples from 8-10 spots in the field in zigzag pattern\n2. Remove surface debris and dig 15cm (6 inches) deep\n3. Take a slice of soil from the side of the hole\n4. Mix all samples together in a clean bucket\n5. Take about 500g of the mixed sample\n6. Dry in shade (not in sun)\n7. Label with name, field location, and crop to be grown\n8. Submit to nearest soil testing lab",
+    "source": "fertilizers_soil.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 409,
+    "content_hash": "32a83ed95237"
+  },
+  {
+    "content": "### Key Soil Parameters\n- **pH**: Ideal range 6.0-7.5 for most crops\n  - Acidic soil (pH <6): Apply lime (2-4 tonnes/ha)\n  - Alkaline soil (pH >8): Apply gypsum (2-5 tonnes/ha)\n- **Organic Carbon**: Should be >0.5% (ideally >0.75%)\n- **Available Nitrogen (N)**: Low < 280 kg/ha, Medium 280-560, High >560\n- **Available Phosphorus (P)**: Low < 10 kg/ha, Medium 10-25, High >25\n- **Available Potassium (K)**: Low < 108 kg/ha, Medium 108-280, High >280\n- **Micronutrients**: Zinc, Iron, Manganese, Copper, Boron",
+    "source": "fertilizers_soil.md",
+    "section_idx": 1,
+    "sub_idx": 2,
+    "char_count": 508,
+    "content_hash": "1f459327ce8f"
+  },
+  {
+    "content": "Organic Fertilizers\n\n### Farmyard Manure (FYM)\n- **What**: Decomposed mixture of cattle dung, urine, and bedding material\n- **NPK Content**: 0.5-1.0% N, 0.15-0.30% P, 0.5-1.0% K\n- **Application**: 5-10 tonnes per acre, apply 2-3 weeks before sowing\n- **Benefits**: Improves soil structure, water-holding capacity, and microbial activity\n- **Cost**: ₹500-1500 per tonne (local sourcing cheapest)",
+    "source": "fertilizers_soil.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 394,
+    "content_hash": "4041cb491a8f"
+  },
+  {
+    "content": "### Vermicompost\n- **What**: Compost produced by earthworms (Eisenia fetida)\n- **NPK Content**: 1.5-2.0% N, 0.9-1.7% P, 1.5-2.4% K\n- **Application**: 2-5 tonnes per acre\n- **Benefits**: Excellent for all crops, improves soil biology, disease resistance\n- **Home Production**: Can be made from kitchen waste and cow dung in 45-60 days\n- **Cost**: ₹5-10 per kg (cheaper if made on-farm)",
+    "source": "fertilizers_soil.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 384,
+    "content_hash": "484346d40534"
+  },
+  {
+    "content": "### Green Manure\n- **Best Crops**: Dhaincha (Sesbania), Sun hemp (Crotalaria), Moong/Urd beans\n- **How**: Grow for 45-60 days and plow under before flowering\n- **NPK Benefit**: Adds 60-80 kg nitrogen per hectare\n- **Best Time**: Before kharif/monsoon season (July sowing)\n- **Additional Benefit**: Suppresses weeds, improves soil organic matter",
+    "source": "fertilizers_soil.md",
+    "section_idx": 2,
+    "sub_idx": 2,
+    "char_count": 344,
+    "content_hash": "054c687465e2"
+  },
+  {
+    "content": "### Compost\n- **Preparation**: Layer crop residues, farm waste, and cow dung. Turn every 15 days. Ready in 3-4 months.\n- **Application**: 5-8 tonnes per acre\n\n### Neem Cake\n- **NPK Content**: 5.2% N, 1.0% P, 1.4% K\n- **Application**: 100-200 kg per acre mixed in soil at sowing\n- **Benefits**: Also acts as bio-pesticide, controls nematodes\n- **Cost**: ₹12-20 per kg",
+    "source": "fertilizers_soil.md",
+    "section_idx": 2,
+    "sub_idx": 3,
+    "char_count": 366,
+    "content_hash": "61cadacd5202"
+  },
+  {
+    "content": "### Bio-fertilizers\n- **Rhizobium**: For legume crops (pulses, groundnut). 200g per 10 kg seed.\n- **Azotobacter**: For non-legume crops. Fixes atmospheric nitrogen. 200g/10 kg seed.\n- **Azospirillum**: For cereals and millets.\n- **Phosphobacteria (PSB)**: Solubilizes fixed phosphorus. 200g/10 kg seed.\n- **Mycorrhiza (VAM)**: Increases phosphorus uptake. Apply in nursery.\n- **Application**: Seed treatment or soil application. Keep away from chemical fertilizers.\n\n---",
+    "source": "fertilizers_soil.md",
+    "section_idx": 2,
+    "sub_idx": 4,
+    "char_count": 470,
+    "content_hash": "c4a8d1269664"
+  },
+  {
+    "content": "Chemical Fertilizers\n\n### Major Fertilizers (NPK)\n\n#### Urea (46% N)\n- **Use**: Nitrogen source for all crops\n- **Application**: Split into 2-3 doses. Basal + top dressing at tillering + panicle initiation.\n- **Rate**: Varies by crop (Rice: 100-120 kg N/ha = 220-260 kg urea/ha)\n- **Tip**: Apply before irrigation or light rain for best absorption\n- **Cost**: ₹267 per 45 kg bag (subsidized)\n- **Warning**: Never over-apply — excess nitrogen makes crops prone to disease and lodging",
+    "source": "fertilizers_soil.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 482,
+    "content_hash": "9514024b0550"
+  },
+  {
+    "content": "#### DAP (18% N, 46% P)\n- **Use**: Phosphorus source + starter nitrogen\n- **Application**: At sowing/transplanting only (phosphorus doesn't move in soil)\n- **Rate**: 100-150 kg/ha for most crops\n- **Cost**: ₹1350 per 50 kg bag (subsidized)\n\n#### MOP / Muriate of Potash (60% K)\n- **Use**: Potassium source, strengthens plant structure and disease resistance\n- **Application**: Basal dose at sowing + top dressing in some crops\n- **Rate**: 50-80 kg/ha\n- **Cost**: ₹1700 per 50 kg bag",
+    "source": "fertilizers_soil.md",
+    "section_idx": 3,
+    "sub_idx": 1,
+    "char_count": 482,
+    "content_hash": "299af513d2a6"
+  },
+  {
+    "content": "#### SSP / Single Super Phosphate (16% P, 11% S)\n- **Use**: Phosphorus + Sulphur source\n- **Application**: Basal dose at sowing\n- **Advantage**: Cheaper than DAP, also provides sulphur\n- **Rate**: 200-300 kg/ha\n\n#### NPK Complex (various grades)\n- Common grades: 10:26:26, 12:32:16, 20:20:0\n- **Use**: Balanced nutrition at sowing\n- **Application**: Apply in furrows at sowing time\n\n### Micronutrient Fertilizers",
+    "source": "fertilizers_soil.md",
+    "section_idx": 3,
+    "sub_idx": 2,
+    "char_count": 412,
+    "content_hash": "302d446aeb87"
+  },
+  {
+    "content": "#### Zinc Sulphate (33% Zn)\n- **Deficiency Signs**: Stunted growth, whitish bands along midrib in rice (khaira disease)\n- **Soil Application**: 25 kg/ha at sowing\n- **Foliar Spray**: 0.5% ZnSO4 (5g/liter) + 0.25% lime\n- **Critical for**: Rice, wheat, maize, citrus\n\n#### Ferrous Sulphate (19% Fe)\n- **Deficiency Signs**: Interveinal chlorosis (yellowing between veins) of young leaves\n- **Foliar Spray**: 0.5-1% FeSO4 solution\n- **Common in**: Alkaline/calcareous soils",
+    "source": "fertilizers_soil.md",
+    "section_idx": 3,
+    "sub_idx": 3,
+    "char_count": 469,
+    "content_hash": "33852220e903"
+  },
+  {
+    "content": "#### Borax (11% B)\n- **Deficiency Signs**: Hollow heart in cauliflower, flowers fall without fruit in mustard\n- **Application**: 10 kg/ha soil application or 0.2% spray\n- **Critical for**: Cauliflower, mustard, sunflower\n\n---",
+    "source": "fertilizers_soil.md",
+    "section_idx": 3,
+    "sub_idx": 4,
+    "char_count": 225,
+    "content_hash": "be4d3e048074"
+  },
+  {
+    "content": "Crop-Specific Fertilizer Recommendations (per acre)\n\n### Rice (Paddy)\n- FYM/Compost: 5 tonnes\n- N:P:K = 50:25:25 kg/acre (= 110 kg Urea + 55 kg DAP + 42 kg MOP)\n- Zinc Sulphate: 10 kg/acre in zinc-deficient soils\n- Timing: Basal (50% P, K, 25% N) → 25% N at tillering → 25% N at panicle initiation\n\n### Wheat\n- FYM: 5 tonnes\n- N:P:K = 60:25:15 kg/acre\n- Timing: Half N + full P + full K at sowing → Half N at first irrigation (21 DAS)",
+    "source": "fertilizers_soil.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 434,
+    "content_hash": "7886e3815e1a"
+  },
+  {
+    "content": "### Tomato\n- FYM: 10 tonnes\n- N:P:K = 50:25:25 kg/acre\n- Micronutrients: Borax 4 kg/acre\n- Timing: 50% N + full P + 50% K basal → 25% N at flowering → 25% N + 50% K at fruiting\n\n### Potato\n- FYM: 10 tonnes\n- N:P:K = 60:30:40 kg/acre\n- High potassium requirement for tuber quality\n\n### Cotton\n- FYM: 5 tonnes\n- N:P:K = 30:15:15 kg/acre\n- Apply N in 3 splits: sowing, square formation, boll development",
+    "source": "fertilizers_soil.md",
+    "section_idx": 4,
+    "sub_idx": 1,
+    "char_count": 400,
+    "content_hash": "ef69a655b668"
+  },
+  {
+    "content": "### Sugarcane\n- FYM: 10 tonnes\n- N:P:K = 100:30:50 kg/acre\n- Heavy feeder — needs multiple N top dressings\n\n---",
+    "source": "fertilizers_soil.md",
+    "section_idx": 4,
+    "sub_idx": 2,
+    "char_count": 111,
+    "content_hash": "8d088486a5af"
+  },
+  {
+    "content": "Best Practices\n\n### Application Tips\n1. Always apply fertilizer based on soil test results\n2. Never mix urea with SSP — it causes nitrogen loss\n3. Apply fertilizer in moist soil, not dry soil\n4. Cover fertilizer with soil to reduce volatilization loss\n5. Don't apply near plant stem — keep 5-8cm distance\n6. Band placement is more efficient than broadcasting\n7. Use neem-coated urea for slow release (mandatory in India since 2015)\n8. Split nitrogen application always gives better results",
+    "source": "fertilizers_soil.md",
+    "section_idx": 5,
+    "sub_idx": 0,
+    "char_count": 489,
+    "content_hash": "d30f5b6c187a"
+  },
+  {
+    "content": "### Safety Precautions\n- Store fertilizers in dry place away from children and animals\n- Never eat or drink while handling fertilizers\n- Wash hands thoroughly after application\n- Don't apply chemical fertilizers and bio-fertilizers together at same time\n- Keep chemical and organic fertilizers separate during storage",
+    "source": "fertilizers_soil.md",
+    "section_idx": 5,
+    "sub_idx": 1,
+    "char_count": 317,
+    "content_hash": "dfc1dcedfb0e"
+  },
+  {
+    "content": "# Irrigation & Water Management — Knowledge Base for AgroBuddy\n# Source: ICAR-IIWM, Central Water Commission, State Agriculture Departments",
+    "source": "irrigation_water.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 139,
+    "content_hash": "feea5ba7d469"
+  },
+  {
+    "content": "Irrigation Methods\n\n### Flood/Surface Irrigation\n- **Most Common in India**: Used by 90%+ of farmers\n- **Efficiency**: Only 30-40% efficient (60-70% water wasted)\n- **Best For**: Rice (paddy requires standing water), large flat fields\n- **Problems**: Waterlogging, salinity buildup, weed growth, nutrient leaching\n- **Improvement Tips**:\n  - Level fields properly using laser leveler\n  - Use alternate wetting and drying (AWD) in rice\n  - Border/furrow irrigation is better than wild flooding",
+    "source": "irrigation_water.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 492,
+    "content_hash": "4a7fe79a5f59"
+  },
+  {
+    "content": "### Drip Irrigation\n- **Efficiency**: 85-95% (best water use efficiency)\n- **Cost**: ₹30,000-60,000 per acre (government subsidy of 55-80% available)\n- **Best For**: Vegetables (tomato, chili, brinjal), fruits (mango, pomegranate, citrus), sugarcane, cotton\n- **Benefits**:\n  - Saves 30-50% water vs flood irrigation\n  - Can fertigate (apply fertilizer through drip = 30% fertilizer saving)\n  - Reduces weed growth (only wets crop zone)\n  - Reduces disease (leaves stay dry)\n  - 20-40% higher yield\n- **Components**: Main pipeline, sub-main, laterals, drippers (2-4 lph)\n- **Maintenance**: Flush lines monthly. Check for clogging. Use filter. Acid treatment annually.\n- **Government Subsidy**: Apply at your District Agriculture Office under PMKSY",
+    "source": "irrigation_water.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 747,
+    "content_hash": "6c1914bc1fda"
+  },
+  {
+    "content": "### Sprinkler Irrigation\n- **Efficiency**: 65-80%\n- **Best For**: Wheat, groundnut, mustard, pulses, fodder crops\n- **Types**: Portable (movable pipes), permanent (fixed), micro-sprinklers\n- **Cost**: ₹20,000-40,000 per acre\n- **Caution**: Not suitable during flowering (can damage pollen), not for crops prone to foliar diseases\n\n### Micro-Sprinkler\n- **Efficiency**: 80-90%\n- **Best For**: Close-spaced crops, nurseries\n- **Advantage**: Can cool plants in heat stress\n\n---",
+    "source": "irrigation_water.md",
+    "section_idx": 1,
+    "sub_idx": 2,
+    "char_count": 474,
+    "content_hash": "147cbce9641b"
+  },
+  {
+    "content": "Crop Water Requirements (per season)",
+    "source": "irrigation_water.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 36,
+    "content_hash": "898c4964e9a6"
+  },
+  {
+    "content": "| Crop | Water Requirement (mm) | Critical Stages |\n|------|----------------------|-----------------|\n| Rice (Paddy) | 1200-1400 | Tillering, Panicle initiation, Flowering |\n| Wheat | 350-500 | Crown root, Tillering, Flowering, Grain filling |\n| Tomato | 400-600 | Flowering, Fruit setting, Fruit development |\n| Potato | 350-500 | Tuber initiation, Tuber bulking |\n| Cotton | 500-700 | Square formation, Boll development |\n| Sugarcane | 1500-2000 | Tillering, Grand growth phase |\n| Maize | 500-600 | Tasseling, Silking, Grain filling |\n| Groundnut | 400-600 | Flowering, Pegging, Pod development |",
+    "source": "irrigation_water.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 599,
+    "content_hash": "128ce85f2bbe"
+  },
+  {
+    "content": "When to Irrigate — Signs of Water Stress\n\n### Visual Signs\n- **Wilting** during afternoon (temporary wilting is normal in hot weather; persistent wilting = needs water)\n- **Leaf rolling** in rice and maize\n- **Darker blue-green** leaf color (before wilting)\n- **Slower growth** and smaller leaves",
+    "source": "irrigation_water.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 296,
+    "content_hash": "48fe81361f89"
+  },
+  {
+    "content": "### Soil-Based Method\n- Take a handful of soil from 15cm depth\n- If it crumbles when squeezed → needs water\n- If it holds shape and feels moist → adequate\n- If water squeezes out → too wet (reduce irrigation)\n\n### Simple Tools\n- **Tensiometer**: Insert in root zone. Irrigate when reading reaches 30-60 cbar.\n- **Feel and Appearance**: Check soil every 2-3 days\n\n---",
+    "source": "irrigation_water.md",
+    "section_idx": 3,
+    "sub_idx": 1,
+    "char_count": 366,
+    "content_hash": "08a7ae7d13b0"
+  },
+  {
+    "content": "Seasonal Water Management\n\n### Kharif/Monsoon Season (June-October)\n- **Reduce irrigation**: Rainfall usually sufficient\n- **Focus on drainage**: Prevent waterlogging\n- **Raised beds**: For vegetables to avoid root rot\n- **Monitor**: Even in monsoon, dry spells of 7-10 days need supplemental irrigation\n- **Rice AWD**: Alternate Wetting and Drying saves 20-30% water without yield loss",
+    "source": "irrigation_water.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 386,
+    "content_hash": "2f720c23e04d"
+  },
+  {
+    "content": "### Rabi/Winter Season (October-March)\n- **Irrigate regularly**: No rainfall, critical period\n- **First irrigation**: 21 days after sowing for wheat (Crown Root Initiation)\n- **Light frequent irrigation**: Better than heavy infrequent\n- **Frost protection**: Light irrigation evening before expected frost protects crop",
+    "source": "irrigation_water.md",
+    "section_idx": 4,
+    "sub_idx": 1,
+    "char_count": 319,
+    "content_hash": "201a33926d81"
+  },
+  {
+    "content": "### Zaid/Summer Season (March-June)\n- **High water demand**: Peak temperatures, high evaporation\n- **Mulching essential**: Reduces evaporation by 30-50%\n- **Early morning irrigation**: 6-8 AM (less evaporation than midday)\n- **Evening irrigation**: Acceptable but increases disease risk in some crops\n\n---",
+    "source": "irrigation_water.md",
+    "section_idx": 4,
+    "sub_idx": 2,
+    "char_count": 305,
+    "content_hash": "ac149c75f548"
+  },
+  {
+    "content": "Water Conservation Techniques\n\n### Mulching\n- **Organic**: Rice straw (5-8cm), dried leaves, sugarcane trash\n- **Plastic**: Black polythene mulch for vegetables\n- **Benefits**: 30-50% less evaporation, weed control, soil temperature regulation\n- **Cost**: Organic = free (from crop residues), Plastic = ₹5,000-8,000/acre",
+    "source": "irrigation_water.md",
+    "section_idx": 5,
+    "sub_idx": 0,
+    "char_count": 320,
+    "content_hash": "f1b4923a3be7"
+  },
+  {
+    "content": "### Rainwater Harvesting\n- **Farm pond**: Dig 3-5m deep pond to store monsoon runoff\n- **Size**: 1/5th of farm area\n- **Use**: Supplemental irrigation during dry spells\n- **Government**: Subsidy available under PMKSY for farm ponds\n- **Lining**: Silpaulin lining prevents seepage (₹300-500/sq meter)\n\n### Land Leveling\n- **Laser Leveling**: Government-subsidized service\n- **Benefit**: Saves 20-25% irrigation water, uniform crop stand\n- **Cost**: ₹3,000-5,000 per acre (one-time, lasts 3-5 years)",
+    "source": "irrigation_water.md",
+    "section_idx": 5,
+    "sub_idx": 1,
+    "char_count": 497,
+    "content_hash": "e49b3145ed21"
+  },
+  {
+    "content": "### Deficit Irrigation\n- **Concept**: Apply less water than full requirement at non-critical growth stages\n- **When**: Skip irrigation at vegetative stage (less sensitive), focus water on reproductive stage (most critical)\n- **Water Saving**: 20-30% with minimal yield loss (5-10%)\n\n---",
+    "source": "irrigation_water.md",
+    "section_idx": 5,
+    "sub_idx": 2,
+    "char_count": 286,
+    "content_hash": "170f73dd15b4"
+  },
+  {
+    "content": "Common Irrigation Problems\n\n### Waterlogging\n- **Signs**: Yellowing lower leaves, root rot, foul smell from soil\n- **Solution**: Improve drainage channels, raise beds, reduce irrigation\n- **Long-term**: Install sub-surface drainage tiles\n\n### Salinity\n- **Signs**: White crust on soil surface, poor germination, stunted growth\n- **Solution**: Leach with excess water, apply gypsum (2-5 tonnes/ha), grow salt-tolerant varieties\n- **Crops**: Rice, barley, cotton are more salt-tolerant",
+    "source": "irrigation_water.md",
+    "section_idx": 6,
+    "sub_idx": 0,
+    "char_count": 483,
+    "content_hash": "e5010871bcf4"
+  },
+  {
+    "content": "### Iron Toxicity in Rice\n- **Signs**: Bronze/orange discoloration of leaves\n- **Solution**: Drain field, allow aerobic conditions, apply lime/potassium\n\n---",
+    "source": "irrigation_water.md",
+    "section_idx": 6,
+    "sub_idx": 1,
+    "char_count": 157,
+    "content_hash": "060a3b01a486"
+  },
+  {
+    "content": "Tips for Small Farmers\n\n1. **Cheapest improvement**: Level your field properly = instant 20% water saving\n2. **Mulch with whatever you have**: Straw, dried leaves, even newspaper between rows\n3. **Group irrigation**: Coordinate with neighbors for canal water turns\n4. **Drip subsidy**: Check eligibility at Agriculture Office — can get 55-80% subsidy\n5. **Moisture check**: Dig 15cm, feel soil — simplest and most reliable method\n6. **Early morning watering**: Always better than evening (less disease)\n7. **Avoid watering leaves**: Wet leaves = fungal diseases (especially tomato, potato)",
+    "source": "irrigation_water.md",
+    "section_idx": 7,
+    "sub_idx": 0,
+    "char_count": 589,
+    "content_hash": "adef46966939"
+  },
+  {
+    "content": "# Organic Farming & Pest Management — Knowledge Base\n# Source: National Centre of Organic Farming (NCOF), ICAR",
+    "source": "organic_pest_management.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 110,
+    "content_hash": "8bd922540a67"
+  },
+  {
+    "content": "Organic Pest Control Methods\n\n### Neem-Based Solutions\n\n#### Neem Oil Spray (Most Versatile)\n- **Preparation**: 5ml neem oil + 1ml liquid soap in 1 liter water. Shake well.\n- **Effective Against**: Aphids, whiteflies, mealybugs, caterpillars, leaf miners, mites\n- **Frequency**: Spray every 7-10 days\n- **Timing**: Spray in evening (neem oil degrades in sunlight)\n- **Safety**: Completely safe for humans, beneficial insects (after drying)",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 439,
+    "content_hash": "9af083c552f6"
+  },
+  {
+    "content": "#### Neem Kernel Extract (NSKE 5%)\n- **Preparation**: Crush 50g neem seeds. Soak overnight in 1 liter water. Filter through cloth. Add 1ml liquid soap.\n- **Effective Against**: Most chewing and sucking pests\n- **Better than neem oil**: Higher azadirachtin content\n\n#### Neem Cake Application\n- **Rate**: 100-200 kg per acre mixed in soil\n- **Benefits**: Kills soil nematodes, grubs, and root-feeding insects\n- **Additional**: Acts as slow-release nitrogen source\n\n### Botanical Pesticides",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 488,
+    "content_hash": "541e6eb7bf29"
+  },
+  {
+    "content": "#### Chilli-Garlic Spray\n- **Preparation**: Grind 100g hot chillies + 100g garlic in water. Soak overnight. Filter. Add to 10 liters water + 5ml soap.\n- **Effective Against**: Aphids, mites, small caterpillars, whiteflies\n- **Frequency**: Every 5-7 days during pest attack",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 2,
+    "char_count": 272,
+    "content_hash": "63f658dd04c3"
+  },
+  {
+    "content": "#### Tobacco Extract (Nicotine)\n- **Preparation**: Soak 500g tobacco dust in 4.5 liters water for 24 hours. Filter. Dilute to 10 liters.\n- **Effective Against**: Aphids, thrips, caterpillars\n- **Caution**: Toxic to honeybees — don't spray during flowering. Not truly organic.\n\n#### Pyrethrum (from Chrysanthemum)\n- **Use**: Natural insecticide from dried pyrethrum flowers\n- **Effective Against**: Most flying and crawling insects\n- **Note**: Also kills beneficial insects. Use only when necessary.",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 3,
+    "char_count": 498,
+    "content_hash": "f2b2b85d78a4"
+  },
+  {
+    "content": "### Bio-Control Agents\n\n#### Trichoderma viride / T. harzianum\n- **What**: Beneficial fungus that attacks plant pathogens\n- **Effective Against**: Root rot, damping off, wilt, collar rot\n- **Application**:\n  - Seed treatment: 5g per kg seed\n  - Soil application: 2.5 kg mixed with 100 kg FYM per hectare\n  - Seedling dip: 10g per liter water\n- **Important**: Don't mix with chemical fungicides",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 4,
+    "char_count": 393,
+    "content_hash": "420ca5362f3f"
+  },
+  {
+    "content": "#### Pseudomonas fluorescens\n- **What**: Beneficial bacterium\n- **Effective Against**: Bacterial diseases, root rot, wilt\n- **Application**: Seed treatment 10g/kg seed, soil drench 5g/liter\n- **Storage**: Keep refrigerated (2-8°C)\n\n#### Beauveria bassiana\n- **What**: Insect-pathogenic fungus (white muscardine)\n- **Effective Against**: Borers, beetles, whiteflies, mealybugs\n- **Application**: 5g per liter water spray or soil application\n- **Advantage**: Self-propagating in insect populations",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 5,
+    "char_count": 495,
+    "content_hash": "b0d86edafe80"
+  },
+  {
+    "content": "#### Metarhizium anisopliae\n- **What**: Green muscardine fungus\n- **Effective Against**: White grubs, root grubs, termites\n- **Application**: Soil application 2.5 kg/ha with FYM",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 6,
+    "char_count": 177,
+    "content_hash": "06809ef26057"
+  },
+  {
+    "content": "#### Bacillus thuringiensis (Bt)\n- **What**: Bacterium producing insecticidal proteins\n- **Effective Against**: All caterpillars/larvae (Helicoverpa, Spodoptera, DBM)\n- **Application**: 1g per liter water. Spray when young larvae seen.\n- **Advantage**: Very specific — safe for beneficial insects\n- **Note**: Spray in evening for best results (UV degrades Bt)",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 7,
+    "char_count": 359,
+    "content_hash": "a8af077322f9"
+  },
+  {
+    "content": "#### Trichogramma (Egg Parasitoid)\n- **What**: Tiny wasp that parasitizes pest eggs\n- **Effective Against**: Bollworms, stem borers, fruit borers\n- **Release**: 1-1.5 lakh eggs/ha (available as Tricho-cards from bio-control labs)\n- **Timing**: Release at egg-laying stage of pest. Repeat 4-6 times.\n\n### Physical/Mechanical Control",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 8,
+    "char_count": 331,
+    "content_hash": "e94d669b1175"
+  },
+  {
+    "content": "#### Yellow Sticky Traps\n- **Effective Against**: Whiteflies, aphids, leaf miners, fungus gnats\n- **Make at Home**: Yellow plastic sheet + castor oil/grease\n- **Rate**: 10-15 traps per acre\n\n#### Blue Sticky Traps\n- **Effective Against**: Thrips specifically\n- **Rate**: 10-15 traps per acre",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 9,
+    "char_count": 291,
+    "content_hash": "055cbcbe08d3"
+  },
+  {
+    "content": "#### Pheromone Traps\n- **What**: Species-specific chemical lures that attract male moths\n- **For**: Helicoverpa (cotton/chickpea), stem borer (rice), fruit fly (mango/guava)\n- **Rate**: 5 traps per acre\n- **Purpose**: Monitoring (decide spray timing) + mass trapping\n\n#### Light Traps\n- **What**: Bulb or LED above water tray\n- **Attracts**: Moths, beetles, many flying pests\n- **Use**: Monitor pest populations. Set up 3-4 per acre.\n\n### Cultural Practices (Prevention)",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 10,
+    "char_count": 470,
+    "content_hash": "76c8edd89fa9"
+  },
+  {
+    "content": "1. **Deep ploughing in summer**: Exposes soil pests to heat and predators\n2. **Crop rotation**: Breaks pest and disease cycles\n3. **Removal of crop residue**: Eliminates pest hiding spots\n4. **Border/trap crops**: Plant marigold around tomato (traps Helicoverpa)\n5. **Companion planting**: Basil with tomato (repels whiteflies), onion with carrot (repels carrot fly)\n6. **Bird perches**: Install T-shaped perches for predatory birds (10-15 per acre)\n7. **Timely sowing**: Early or optimal sowing avoids peak pest periods\n8. **Resistant varieties**: First line of defense",
+    "source": "organic_pest_management.md",
+    "section_idx": 1,
+    "sub_idx": 11,
+    "char_count": 570,
+    "content_hash": "20334598dae0"
+  },
+  {
+    "content": "Organic Disease Management\n\n### Bordeaux Mixture (1%)\n- **Preparation**: Dissolve 100g copper sulphate in 5 liters water (Solution A). Dissolve 100g lime in 5 liters water (Solution B). Slowly pour A into B while stirring. Total: 10 liters.\n- **Effective Against**: Downy mildew, late blight, bacterial diseases\n- **Caution**: Do not spray at temperatures >30°C or during flowering",
+    "source": "organic_pest_management.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 381,
+    "content_hash": "8c453f8ad6a5"
+  },
+  {
+    "content": "### Panchagavya\n- **Composition**: Cow dung, cow urine, cow milk, curd, ghee — fermented 15-20 days\n- **Use**: 3% spray (30ml per liter). Growth promoter + mild disease suppressant.\n- **Frequency**: Every 15 days during vegetative growth",
+    "source": "organic_pest_management.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 237,
+    "content_hash": "21c0d029df3c"
+  },
+  {
+    "content": "### Jeevamrutham\n- **Preparation**: 10 kg fresh cow dung + 10 liters cow urine + 2 kg jaggery + 2 kg pulse flour + handful of farm soil in 200 liters water. Ferment 4-7 days.\n- **Application**: 200 liters per acre through irrigation or sprinkle\n- **Benefit**: Excellent soil microbial activator",
+    "source": "organic_pest_management.md",
+    "section_idx": 2,
+    "sub_idx": 2,
+    "char_count": 294,
+    "content_hash": "b0ab6b24e623"
+  },
+  {
+    "content": "### Amritpani\n- **Preparation**: 10 kg cow dung + 500g honey + 250g ghee. Mix well, dilute in 200 liters water.\n- **Application**: Soil drench after sowing\n- **Benefit**: Promotes root growth, microbial activity\n\n---",
+    "source": "organic_pest_management.md",
+    "section_idx": 2,
+    "sub_idx": 3,
+    "char_count": 216,
+    "content_hash": "5e26ccfc8165"
+  },
+  {
+    "content": "Weed Management (Organic)\n\n### Prevention\n- Dense planting/close spacing — suppress weeds by shade\n- Cover crops — cowpea, horse gram as living mulch\n- Stale seedbed technique — irrigate, let weeds germinate, then destroy before sowing\n\n### Physical\n- Hand weeding at 20 and 40 days after sowing\n- Cycle weeder / cono-weeder in rice (saves labor)\n- Mulching (plastic or organic)\n\n### Bioherbicides\n- Still limited commercial availability in India\n- Vinegar spray (20% acetic acid) — kills small weeds on contact (not selective)\n\n---",
+    "source": "organic_pest_management.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 532,
+    "content_hash": "f809455c9700"
+  },
+  {
+    "content": "Integrated Pest Management (IPM) Principles\n\n1. **Prevention first**: Resistant varieties, crop rotation, clean planting material\n2. **Observation**: Regular field scouting (2x per week). Learn pest identification.\n3. **Threshold**: Don't spray unless pest population crosses Economic Threshold Level (ETL)\n4. **Biological first**: Use bio-agents and botanicals before chemicals\n5. **Chemical last resort**: If needed, use targeted chemicals (not broad-spectrum)\n6. **Record keeping**: Note pest occurrence, treatments used, results — learn season by season",
+    "source": "organic_pest_management.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 557,
+    "content_hash": "a671490aef63"
+  },
+  {
+    "content": "# Seasonal Crop Planning — India\n# Source: ICAR, State Agriculture Universities, India Meteorological Department",
+    "source": "seasonal_crops.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 112,
+    "content_hash": "c7810f90b6df"
+  },
+  {
+    "content": "Kharif Season (Monsoon: June-October)",
+    "source": "seasonal_crops.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 37,
+    "content_hash": "15cc3a812d5f"
+  },
+  {
+    "content": "### Major Crops\n| Crop | Sowing | Harvest | Key States |\n|------|--------|---------|------------|\n| Rice (Paddy) | June-July | Oct-Nov | WB, UP, Punjab, AP, TN |\n| Maize | June-July | Sep-Oct | Karnataka, Bihar, Rajasthan |\n| Cotton | May-June | Oct-Dec | Gujarat, Maharashtra, Telangana |\n| Soybean | June-July | Sep-Oct | MP, Maharashtra, Rajasthan |\n| Groundnut | June-July | Sep-Oct | Gujarat, Rajasthan, AP |\n| Sugarcane | Feb-March | Dec-Feb (next year) | UP, Maharashtra, Karnataka |\n| Jowar (Sorghum) | June-July | Sep-Oct | Maharashtra, Karnataka |\n| Bajra (Pearl Millet) | June-July | Sep-Oct | Rajasthan, Gujarat, Haryana |\n| Tur/Arhar (Pigeon pea) | June-July | Dec-Jan | Maharashtra, UP, Karnataka |\n| Moong (Green gram) | June-July | Aug-Sep | Rajasthan, MP, Maharashtra |\n| Urad (Black gram) | July-Aug | Sep-Oct | MP, UP, Maharashtra |\n| Sesame (Til) | June-July | Sep-Oct | WB, Rajasthan, Gujarat |\n| Jute | March-May | Aug-Sep | WB, Bihar, Assam |",
+    "source": "seasonal_crops.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 965,
+    "content_hash": "51252623b096"
+  },
+  {
+    "content": "### Weather Considerations\n- **Pre-monsoon (May-June)**: Prepare land, apply FYM, plan seed procurement\n- **Monsoon onset**: Sow after 2-3 good rains (soil has sufficient moisture)\n- **Mid-monsoon (Aug)**: Critical pest/disease monitoring period\n- **Late monsoon (Sep-Oct)**: Harvest planning, post-harvest processing\n- **Cyclone risk**: Coastal areas — harvest early if cyclone warning\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 1,
+    "sub_idx": 2,
+    "char_count": 391,
+    "content_hash": "71f8ad5a71f3"
+  },
+  {
+    "content": "Rabi Season (Winter: October-March)",
+    "source": "seasonal_crops.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 35,
+    "content_hash": "d8de45151838"
+  },
+  {
+    "content": "### Major Crops\n| Crop | Sowing | Harvest | Key States |\n|------|--------|---------|------------|\n| Wheat | Nov-Dec | Mar-Apr | Punjab, Haryana, UP, MP |\n| Mustard | Oct-Nov | Feb-Mar | Rajasthan, MP, UP |\n| Chickpea (Chana) | Oct-Nov | Feb-Mar | MP, Rajasthan, Maharashtra |\n| Barley | Nov-Dec | Mar-Apr | Rajasthan, UP, MP |\n| Peas | Oct-Nov | Jan-Feb | UP, MP, Punjab |\n| Lentil (Masoor) | Oct-Nov | Feb-Mar | MP, UP, Bihar |\n| Potato | Oct-Nov | Jan-Feb | UP, WB, Punjab |\n| Onion | Oct-Nov (kharif), Dec-Jan (rabi) | Varies | Maharashtra, MP, Karnataka |\n| Sunflower | Dec-Jan | Mar-Apr | Karnataka, AP, Maharashtra |\n| Linseed | Oct-Nov | Feb-Mar | MP, UP, Chhattisgarh |",
+    "source": "seasonal_crops.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 677,
+    "content_hash": "3e34753348c1"
+  },
+  {
+    "content": "### Weather Considerations\n- **Timely sowing critical**: Late sowing reduces wheat yield by 25-30 kg/ha per day delay after Nov 25\n- **Frost protection**: Cover nurseries with polythene. Apply light irrigation. Smoke/heat near field edges.\n- **Fog**: Increases disease pressure (rust in wheat, powdery mildew). Be ready with fungicide.\n- **Western disturbances**: Unpredictable rain — useful for rainfed crops but may delay harvest\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 2,
+    "sub_idx": 2,
+    "char_count": 436,
+    "content_hash": "63ac81b0c70e"
+  },
+  {
+    "content": "Zaid Season (Summer: March-June)\n\n### Major Crops\n| Crop | Sowing | Harvest |\n|------|--------|---------|\n| Watermelon | Feb-Mar | May-Jun |\n| Muskmelon | Feb-Mar | May-Jun |\n| Cucumber | Feb-Mar | Apr-May |\n| Moong (Summer) | Mar-Apr | May-Jun |\n| Sunflower | Feb-Mar | May-Jun |\n| Bottle gourd | Feb-Mar | Apr-Jun |\n| Bitter gourd | Feb-Mar | May-Jun |\n\n### Considerations\n- **Water availability**: Only with assured irrigation\n- **Heat management**: Mulching essential, shade nets for nurseries\n- **Marketing**: Good prices for early vegetables\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 552,
+    "content_hash": "682eb72fe2cf"
+  },
+  {
+    "content": "Crop Rotation Recommendations\n\n### Best Rotations (Disease Control + Soil Health)\n1. **Rice → Wheat** (most common in Indo-Gangetic plains)\n2. **Rice → Mustard** (good for soil structure)\n3. **Cotton → Wheat** (breaks disease cycle)\n4. **Soybean → Wheat** (nitrogen fixation benefits wheat)\n5. **Maize → Chickpea** (cereal → legume rotation)\n6. **Tomato → Rice** (breaks Phytophthora cycle)\n7. **Potato → Maize → Wheat** (3-year rotation)",
+    "source": "seasonal_crops.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 438,
+    "content_hash": "59f6d5fd049c"
+  },
+  {
+    "content": "### Rules\n- Always rotate cereals with legumes (pulses add nitrogen)\n- Don't repeat same crop family (solanaceae: tomato, potato, brinjal, chilli)\n- Include a green manure crop every 2-3 years\n- Deep-rooted crop after shallow-rooted (rice → mustard)\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 4,
+    "sub_idx": 1,
+    "char_count": 254,
+    "content_hash": "b51497d4f4af"
+  },
+  {
+    "content": "Intercropping for Small Farmers\n\n### Profitable Combinations\n| Main Crop | Intercrop | Row Ratio | Benefits |\n|-----------|-----------|-----------|----------|\n| Sugarcane | Cowpea/Moong | 1:2 | Income + nitrogen fixation |\n| Cotton | Groundnut | 1:1 | Inter-row space utilization |\n| Maize | Cowpea | 1:1 | Soil cover + fodder |\n| Pigeon pea | Sorghum | 1:2 | Dual harvest |\n| Coconut | Banana + Pineapple | Multi-tier | Maximum space use |\n| Mango | Turmeric/Ginger | Under-canopy | Shade-tolerant crops |\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 5,
+    "sub_idx": 0,
+    "char_count": 511,
+    "content_hash": "d280bcc300c0"
+  },
+  {
+    "content": "Pest & Disease Calendar\n\n### January-February\n- Wheat: Watch for rust, aphids\n- Mustard: Aphid peak season, apply dimethoate if severe\n- Potato: Late blight risk in foggy weather\n\n### March-April\n- Wheat: Terminal heat — irrigate at grain filling\n- Mango: Powdery mildew on flowers — spray sulphur\n- Summer vegetables: Start nurseries\n\n### May-June\n- Field preparation for kharif\n- Deep ploughing to kill soil pests\n- Apply FYM/compost 3-4 weeks before sowing",
+    "source": "seasonal_crops.md",
+    "section_idx": 6,
+    "sub_idx": 0,
+    "char_count": 459,
+    "content_hash": "262392f66399"
+  },
+  {
+    "content": "### July-August\n- Rice: Blast, BLB, stem borer — regular monitoring\n- Cotton: Bollworm watch — use pheromone traps\n- Soybean: Girdle beetle, semi-looper\n\n### September-October\n- Rice: Brown plant hopper — avoid excess nitrogen\n- Cotton: Pink bollworm — pick affected bolls\n- Kharif harvest preparation\n\n### November-December\n- Wheat sowing — don't delay beyond Nov 25\n- Chickpea: Helicoverpa pod borer — monitor at flowering\n- Rabi pest establishment period\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 6,
+    "sub_idx": 1,
+    "char_count": 462,
+    "content_hash": "7a55daf62dd5"
+  },
+  {
+    "content": "Government Schemes for Farmers\n\n### Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)\n- ₹6,000/year in 3 installments to all small and marginal farmers\n- Direct bank transfer\n\n### Pradhan Mantri Fasal Bima Yojana (PMFBY)\n- Crop insurance at 2% premium for kharif, 1.5% for rabi\n- Full loss coverage. Apply before season deadline at bank/CSC.\n\n### PM Krishi Sinchai Yojana (PMKSY)\n- Subsidy for drip/sprinkler irrigation (55-80%)\n- Farm pond subsidies\n- Apply at District Agriculture Office",
+    "source": "seasonal_crops.md",
+    "section_idx": 7,
+    "sub_idx": 0,
+    "char_count": 484,
+    "content_hash": "eef0193e0026"
+  },
+  {
+    "content": "### Soil Health Card Scheme\n- Free soil testing every 2 years\n- Personalized fertilizer recommendations\n- Available at KVK or through Soil Health Card portal\n\n### KCC (Kisan Credit Card)\n- Crop loans at 4% interest (with prompt repayment benefit)\n- Apply at any bank branch\n\n---",
+    "source": "seasonal_crops.md",
+    "section_idx": 7,
+    "sub_idx": 1,
+    "char_count": 278,
+    "content_hash": "b8b36f96b0d4"
+  },
+  {
+    "content": "Climate-Smart Practices\n\n### For Increasing Temperature\n- Choose heat-tolerant varieties\n- Mulching to reduce soil temperature\n- Pre-dawn irrigation\n- Shade nets for nurseries and sensitive crops\n\n### For Erratic Rainfall\n- Rainwater harvesting (farm ponds)\n- Short-duration varieties (escape drought)\n- Drought-tolerant varieties (DRR Dhan 44 for rice)\n- Crop insurance enrollment\n\n### For Floods\n- Submergence-tolerant rice varieties (Swarna Sub-1)\n- Raised bed planting\n- Drainage channel preparation before monsoon",
+    "source": "seasonal_crops.md",
+    "section_idx": 8,
+    "sub_idx": 0,
+    "char_count": 518,
+    "content_hash": "b7dcbeb13a5f"
+  },
+  {
+    "content": "# Yield Improvement Strategies — Knowledge Base for AgroBuddy\n# Source: ICAR, Agricultural Research Stations, Farmer Best Practices",
+    "source": "yield_improvement.md",
+    "section_idx": 0,
+    "sub_idx": 0,
+    "char_count": 131,
+    "content_hash": "c93fe1fdc550"
+  },
+  {
+    "content": "Top 10 Yield Killers in Indian Farming",
+    "source": "yield_improvement.md",
+    "section_idx": 1,
+    "sub_idx": 0,
+    "char_count": 38,
+    "content_hash": "4347dee11a23"
+  },
+  {
+    "content": "1. **Poor seed quality** — 15-20% yield reduction\n2. **Incorrect spacing** — 10-20% loss from overcrowding or wide spacing\n3. **Imbalanced fertilization** — 15-25% loss from nitrogen-only approach\n4. **Late sowing** — 20-30% loss (especially wheat, mustard)\n5. **Water stress at critical stages** — 30-50% loss\n6. **Uncontrolled weeds** — 30-40% loss (biggest yield reducer)\n7. **Pest/disease outbreaks** — 20-100% loss\n8. **Soil degradation** — 10-20% gradual decline\n9. **Post-harvest losses** — 15-25% of harvested produce\n10. **No crop rotation** — 10-15% decline over years",
+    "source": "yield_improvement.md",
+    "section_idx": 1,
+    "sub_idx": 1,
+    "char_count": 578,
+    "content_hash": "7593337942ca"
+  },
+  {
+    "content": "Seed Selection\n\n### Quality Matters\n- Use certified seeds from government/reputed sources\n- Seed replacement ratio: Replace seeds every 3 years\n- Hybrid seeds: Higher yield (20-30% more) but buy fresh each season\n- Improved varieties: Developed by ICAR/SAUs for your region",
+    "source": "yield_improvement.md",
+    "section_idx": 2,
+    "sub_idx": 0,
+    "char_count": 273,
+    "content_hash": "bd8a50f6729c"
+  },
+  {
+    "content": "### Seed Treatment\n1. **Salt water test**: Dissolve 100g salt in 1 liter water. Dip seeds. Remove floaters (empty/light seeds). Wash remaining seeds.\n2. **Fungicide treatment**: Carbendazim 2g or Thiram 3g per kg seed to prevent seed-borne diseases.\n3. **Bio-agent treatment**: Trichoderma 5g/kg OR Pseudomonas 10g/kg for organic farming.\n4. **Rhizobium inoculation**: For all legume crops — dramatically improves nitrogen fixation.",
+    "source": "yield_improvement.md",
+    "section_idx": 2,
+    "sub_idx": 1,
+    "char_count": 432,
+    "content_hash": "4e225d758d57"
+  },
+  {
+    "content": "### Nursery Management\n- Raised beds (10cm high) with FYM-enriched soil\n- Proper spacing in nursery = stocky, healthy seedlings\n- Harden seedlings before transplanting (reduce watering 2-3 days before)\n- Optimal age for transplanting:\n  - Rice: 20-25 day old seedlings\n  - Tomato: 25-30 day old seedlings\n  - Chilli/Brinjal: 35-40 day old seedlings",
+    "source": "yield_improvement.md",
+    "section_idx": 2,
+    "sub_idx": 2,
+    "char_count": 348,
+    "content_hash": "fb93f2e0c63b"
+  },
+  {
+    "content": "Spacing Optimization\n\n### Common Crops Spacing Guide\n| Crop | Row x Plant (cm) | Plants per Acre |\n|------|------------------|-----------------|\n| Rice (transplanted) | 20 x 15 | ~133,000 |\n| Rice (SRI method) | 25 x 25 | ~64,000 |\n| Wheat | 20 x continuous | ~500 plants/sq.m |\n| Tomato | 60 x 45 | ~14,800 |\n| Chilli | 60 x 45 | ~14,800 |\n| Brinjal | 75 x 60 | ~8,900 |\n| Cotton | 120 x 60 | ~5,600 |\n| Maize | 60 x 20 | ~33,300 |",
+    "source": "yield_improvement.md",
+    "section_idx": 3,
+    "sub_idx": 0,
+    "char_count": 432,
+    "content_hash": "b691c5a8aa7c"
+  },
+  {
+    "content": "### SRI Method (System of Rice Intensification)\n- Single seedling transplanting (not 3-4)\n- 25x25 cm spacing (wider than conventional)\n- Transplant at 8-12 day age (younger)\n- Alternate wetting and drying\n- Mechanical weeder use\n- **Result**: 30-50% more yield with 50% less water and 50% less seed",
+    "source": "yield_improvement.md",
+    "section_idx": 3,
+    "sub_idx": 1,
+    "char_count": 298,
+    "content_hash": "fb407592f89b"
+  },
+  {
+    "content": "Nutrient Management for Higher Yield\n\n### Integrated Nutrient Management (INM)\n- 50% nutrients from organic sources (FYM, compost)\n- 50% from chemical fertilizers\n- **This combination** gives higher yield than 100% chemical alone\n- Add micronutrients based on soil test",
+    "source": "yield_improvement.md",
+    "section_idx": 4,
+    "sub_idx": 0,
+    "char_count": 269,
+    "content_hash": "3a14debb84a6"
+  },
+  {
+    "content": "### Key Nutrient Functions\n| Nutrient | Deficiency Symptoms | Effect on Yield |\n|----------|-------------------|-----------------|\n| Nitrogen (N) | Yellowing of older leaves | Most dramatic yield loss |\n| Phosphorus (P) | Purple stems, poor roots | Poor root and grain development |\n| Potassium (K) | Brown leaf edges, weak stems | Lodging, poor grain fill |\n| Zinc (Zn) | White bands in rice, stunting | 15-20% yield loss |\n| Sulphur (S) | Yellowing of new leaves | Poor oil content in oilseeds |\n| Boron (B) | Hollow stem in cauliflower | Flower/fruit drop |",
+    "source": "yield_improvement.md",
+    "section_idx": 4,
+    "sub_idx": 1,
+    "char_count": 560,
+    "content_hash": "59c3424d0b91"
+  },
+  {
+    "content": "### Foliar Nutrition for Quick Boost\n- **2% Urea spray**: Quick nitrogen at critical stages (2g urea per 100ml)\n- **DAP spray**: 2% solution at flowering\n- **Micronutrient grades**: Commercial multi-micro sprays at flowering\n- **Best time**: Early morning or late evening, avoid rain within 4 hours",
+    "source": "yield_improvement.md",
+    "section_idx": 4,
+    "sub_idx": 2,
+    "char_count": 298,
+    "content_hash": "386e07d6b54b"
+  },
+  {
+    "content": "Weed Management Timeline\n\n### Critical Period of Weed Competition (CPWC)\n| Crop | CPWC (DAS/DAT) | Action Required By |\n|------|----------------|-------------------|\n| Rice (transplanted) | 15-45 DAT | First weeding by 20 DAT |\n| Wheat | 20-40 DAS | First weeding by 25 DAS |\n| Maize | 15-45 DAS | First weeding by 20 DAS |\n| Soybean | 20-40 DAS | Pre-emergent herbicide + 1 hand weeding |\n| Cotton | 15-60 DAS | Needs 2-3 weedings |\n| Tomato | 20-45 DAT | Keep weed-free transplanting to 45 days |",
+    "source": "yield_improvement.md",
+    "section_idx": 5,
+    "sub_idx": 0,
+    "char_count": 498,
+    "content_hash": "580332a9d406"
+  },
+  {
+    "content": "### Effective Weed Control Strategy\n1. **Pre-emergent herbicide**: Apply within 3 days of sowing on moist soil\n2. **One hand weeding**: At 25-30 DAS\n3. **Second weeding (if needed)**: At 45-50 DAS\n4. **After CPWC**: Crop canopy suppresses remaining weeds",
+    "source": "yield_improvement.md",
+    "section_idx": 5,
+    "sub_idx": 1,
+    "char_count": 254,
+    "content_hash": "0ab025ff5c88"
+  },
+  {
+    "content": "Crop Health Monitoring\n\n### Weekly Field Walk Checklist\n- [ ] Check 10 random plants for pest damage\n- [ ] Look under leaves for eggs/larvae\n- [ ] Check soil moisture (15cm depth)\n- [ ] Monitor weed growth\n- [ ] Look for nutrient deficiency symptoms\n- [ ] Check irrigation system functioning\n- [ ] Note any unusual plant growth\n- [ ] Count beneficial insects (spiders, ladybugs, parasitic wasps)",
+    "source": "yield_improvement.md",
+    "section_idx": 6,
+    "sub_idx": 0,
+    "char_count": 395,
+    "content_hash": "854d16530165"
+  },
+  {
+    "content": "### When to Act\n| Observation | Action |\n|------------|--------|\n| 5% leaf damage | Monitor only |\n| 10% leaf damage | Apply bio-control |\n| 20%+ leaf damage | Chemical intervention |\n| Sucking pests on 20% plants | Apply neem/chemical |\n| Borer entry holes visible | Apply granular insecticide |",
+    "source": "yield_improvement.md",
+    "section_idx": 6,
+    "sub_idx": 1,
+    "char_count": 296,
+    "content_hash": "69fb5f86cc49"
+  },
+  {
+    "content": "Post-Harvest Management\n\n### Reduce Losses (Current loss: 15-25% of production)\n1. **Harvest at right moisture**: Grain crops at 14-18% moisture\n2. **Sun drying**: Spread thin layer, turn 2-3 times daily, 2-3 days\n3. **Clean storage**: Fumigate godown before storage\n4. **Hermetic storage**: Air-tight storage bags (PICS bags) prevent insect damage\n5. **Stack properly**: On dunnage (wooden pallets), away from walls\n6. **Check regularly**: Monthly inspection for moisture, insects, rodents",
+    "source": "yield_improvement.md",
+    "section_idx": 7,
+    "sub_idx": 0,
+    "char_count": 490,
+    "content_hash": "8801a184f194"
+  },
+  {
+    "content": "### Value Addition\n- Clean and grade produce before selling\n- Process at home: Turmeric → powder, Tomato → paste, Chilli → powder\n- Direct selling through FPO/Farmers Markets for 20-30% better price\n- Government MSP procurement — check dates and centers",
+    "source": "yield_improvement.md",
+    "section_idx": 7,
+    "sub_idx": 1,
+    "char_count": 253,
+    "content_hash": "9748cf627e87"
+  },
+  {
+    "content": "Record Keeping\n\n### What to Record\n- Date of sowing and harvest\n- Variety and seed source\n- Fertilizer applied (type, quantity, date)\n- Pesticide sprays (chemical, dose, date, target pest)\n- Irrigation dates and method\n- Weather events (rainfall, frost, hailstorm)\n- Yield obtained and price received\n- Expenses and income\n\n### Why It Matters\n- Compare performance year over year\n- Identify what works and what doesn't\n- Claim crop insurance (records serve as evidence)\n- Plan next season better\n- Track soil health changes over time",
+    "source": "yield_improvement.md",
+    "section_idx": 8,
+    "sub_idx": 0,
+    "char_count": 533,
+    "content_hash": "0f109bea5aa0"
+  }
+]

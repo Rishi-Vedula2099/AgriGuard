@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DollarSign, Clock, BookOpen, User, PlusCircle, ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -20,15 +20,21 @@ export default function CreateSessionPage() {
     });
     const [loading, setLoading] = useState(false);
 
-    // In a real app, these would be fetched from DB
-    const mockCrops = [
-        { id: "1", name: "Wheat" },
-        { id: "2", name: "Rice" },
-        { id: "3", name: "Cotton" },
-        { id: "4", name: "Tomato" },
-    ];
+    const [crops, setCrops] = useState<{ id: string; name: string }[]>([]);
 
-    const handleChange = (e: any) => {
+    useEffect(() => {
+        const fetchCrops = async () => {
+            try {
+                const res = await learnApi.getCrops();
+                setCrops(res.data);
+            } catch (err) {
+                console.error("Failed to fetch crops", err);
+            }
+        };
+        fetchCrops();
+    }, []);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -36,7 +42,7 @@ export default function CreateSessionPage() {
         }));
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.crop_id) {
             alert("Please select a crop");
@@ -49,7 +55,7 @@ export default function CreateSessionPage() {
             router.push("/farmer/my-sessions");
         } catch (err: any) {
             console.error(err);
-            alert(err.response?.data?.detail || "Failed to create session");
+            alert((err as any).response?.data?.detail || "Failed to create session");
         } finally {
             setLoading(false);
         }
@@ -107,8 +113,7 @@ export default function CreateSessionPage() {
                                     required
                                     className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition appearance-none"
                                 >
-                                    <option value="" disabled>Select a crop</option>
-                                    {mockCrops.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                                    {crops.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                                 </select>
                             </div>
 
@@ -184,7 +189,7 @@ export default function CreateSessionPage() {
                     <div className="bg-gray-900 border border-gray-700 rounded-xl p-4 flex gap-4 mt-6">
                         <BookOpen className="text-blue-500 shrink-0" />
                         <p className="text-sm text-gray-400">
-                            By creating this session, you agree to AgriGuard's teaching terms. Make sure your microphone and camera setup are ready before the session begins.
+                            By creating this session, you agree to AgriGuard&apos;s teaching terms. Make sure your microphone and camera setup are ready before the session begins.
                         </p>
                     </div>
 
