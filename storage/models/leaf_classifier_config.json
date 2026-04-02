@@ -1,0 +1,4 @@
+{
+  "model_name": "leaf_classifier",
+  "architecture": "EfficientNet-B0"
+}
