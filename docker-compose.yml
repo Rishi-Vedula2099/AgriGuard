@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: agriguard-pg
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=agriguard
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./storage/postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/agriguard
+      - ML_SERVICE_URL=http://ml-service:8001
+      - AI_ASSISTANT_URL=http://ai-assistant:8002
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - ./storage:/app/storage
+    depends_on:
+      - db
+      - ml-service
+      - ai-assistant
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: apps/ml-service/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - STORAGE_DIR=/app/storage
+    volumes:
+      - ./storage:/app/storage
+
+  ai-assistant:
+    build:
+      context: .
+      dockerfile: apps/ai-assistant/Dockerfile
+    ports:
+      - "8002:8002"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - STORAGE_DIR=/app/storage
+    volumes:
+      - ./storage:/app/storage
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    volumes:
+      - ./storage:/app/storage

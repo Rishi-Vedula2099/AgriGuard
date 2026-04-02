@@ -1,0 +1,45 @@
+{
+  "model_name": "agriguard_field_segmenter",
+  "architecture": "U-Net",
+  "framework": "PyTorch",
+  "version": "1.0.0",
+  "input_spec": {
+    "channels": 3,
+    "height": 256,
+    "width": 256,
+    "format": "RGB",
+    "normalize": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "output_spec": {
+    "type": "binary_segmentation",
+    "channels": 1,
+    "activation": "sigmoid",
+    "threshold": 0.5
+  },
+  "training": {
+    "dataset": "custom_field_segmentation",
+    "epochs": 30,
+    "batch_size": 16,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "loss": "BCEWithLogitsLoss + DiceLoss"
+  },
+  "performance": {
+    "iou": 0.0,
+    "dice": 0.0,
+    "note": "Model not yet trained \u2014 run scripts/train_segmentation_model.py"
+  },
+  "weights_file": "field_segmenter.pt",
+  "demo_mode": true
+}

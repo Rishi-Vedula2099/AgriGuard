@@ -1,13 +1,23 @@
 import { create } from "zustand";
 
 // ─── Auth Store ───
+interface AuthUser {
+  id: string;
+  email?: string;
+  phone?: string;
+  name?: string;
+  role: "FARMER" | "STUDENT" | "ADMIN";
+  role_selected: boolean;
+  region?: string;
+}
+
 interface AuthState {
   isAuthenticated: boolean;
-  user: any | null;
+  user: AuthUser | null;
   token: string | null;
-  login: (token: string, refreshToken: string, user: any) => void;
+  login: (token: string, refreshToken: string, user: AuthUser) => void;
   logout: () => void;
-  updateUser: (user: any) => void;
+  updateUser: (user: AuthUser) => void;
   checkAuth: () => void;
 }
 
@@ -42,7 +52,11 @@ export const useAuthStore = create<AuthState>((set) => ({
       const token = localStorage.getItem("access_token");
       const userStr = localStorage.getItem("user");
       if (token && userStr) {
-        set({ isAuthenticated: true, token, user: JSON.parse(userStr) });
+        try {
+          set({ isAuthenticated: true, token, user: JSON.parse(userStr) });
+        } catch {
+          set({ isAuthenticated: false, token: null, user: null });
+        }
       }
     }
   },
@@ -74,7 +88,8 @@ export const useScanStore = create<ScanState>((set) => ({
   setPreviewUrl: (url) => set({ previewUrl: url }),
   setIsScanning: (scanning) => set({ isScanning: scanning }),
   setScanResult: (result) => set({ scanResult: result }),
-  resetScan: () => set({ selectedImage: null, previewUrl: null, isScanning: false, scanResult: null }),
+  resetScan: () =>
+    set({ selectedImage: null, previewUrl: null, isScanning: false, scanResult: null }),
 }));
 
 // ─── Chat Store ───

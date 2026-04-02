@@ -22,14 +22,42 @@ api.interceptors.request.use((config) => {
 
 // Auth API
 export const authApi = {
-  sendOTP: (phone: string) => api.post("/api/v1/auth/send-otp", { phone }),
-  verifyOTP: (phone: string, otp: string) => api.post("/api/v1/auth/verify-otp", { phone, otp }),
+  // ── Email / Password ──────────────────────────────────────
+  register: (name: string, email: string, password: string) =>
+    api.post("/api/v1/auth/register", { name, email, password }),
+  loginEmail: (email: string, password: string) =>
+    api.post("/api/v1/auth/login", { email, password }),
+  setRole: (role: string) =>
+    api.put("/api/v1/auth/role", { role }),
+
+  // ── Profile ───────────────────────────────────────────────
   getProfile: () => api.get("/api/v1/auth/me"),
   updateProfile: (data: any) => api.put("/api/v1/auth/me", data),
+
+  // ── OTP (legacy) ──────────────────────────────────────────
+  sendOTP: (phone: string) => api.post("/api/v1/auth/send-otp", { phone }),
+  verifyOTP: (phone: string, otp: string) =>
+    api.post("/api/v1/auth/verify-otp", { phone, otp }),
 };
 
-// Scan API
+// Scan API — calls ML service directly for classification, backend for saving
 export const scanApi = {
+  // Direct ML service call for real-time analysis
+  classifyLeaf: (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    return axios.post(`${ML_URL}/api/v1/classify`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  segmentField: (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    return axios.post(`${ML_URL}/api/v1/segment`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  // Backend calls for persistence
   scanLeaf: (file: File, cropType?: string) => {
     const formData = new FormData();
     formData.append("file", file);
@@ -51,7 +79,8 @@ export const scanApi = {
 
 // History API
 export const historyApi = {
-  getHistory: (page = 1, limit = 20) => api.get(`/api/v1/history/?page=${page}&limit=${limit}`),
+  getHistory: (page = 1, limit = 20) =>
+    api.get(`/api/v1/history/?page=${page}&limit=${limit}`),
   deleteScan: (scanId: string) => api.delete(`/api/v1/history/${scanId}`),
 };
 
@@ -62,11 +91,14 @@ export const analyticsApi = {
   getScanAnalytics: () => api.get("/api/v1/analytics/scans"),
 };
 
+// Chat API
 export const chatApi = {
   sendMessage: (message: string, sessionId?: string, history?: any[]) =>
     axios.post(`${AI_URL}/api/v1/chat`, { message, session_id: sessionId, history }),
-  getHistory: (sessionId: string) => axios.get(`${AI_URL}/api/v1/chat/history/${sessionId}`),
-  clearHistory: (sessionId: string) => axios.delete(`${AI_URL}/api/v1/chat/history/${sessionId}`),
+  getHistory: (sessionId: string) =>
+    axios.get(`${AI_URL}/api/v1/chat/history/${sessionId}`),
+  clearHistory: (sessionId: string) =>
+    axios.delete(`${AI_URL}/api/v1/chat/history/${sessionId}`),
   getSuggestions: () => axios.get(`${AI_URL}/api/v1/chat/suggestions`),
 };
 
@@ -81,9 +113,11 @@ export const learnApi = {
   createOrder: (data: any) => api.post("/api/v1/payments/create-order", data),
   verifyPayment: (data: any) => api.post("/api/v1/payments/verify", data),
   submitFeedback: (data: any) => api.post("/api/v1/interactions/feedback", data),
-  getFeedback: (sessionId: string) => api.get(`/api/v1/interactions/feedback/${sessionId}`),
+  getFeedback: (sessionId: string) =>
+    api.get(`/api/v1/interactions/feedback/${sessionId}`),
   saveNotes: (data: any) => api.post("/api/v1/interactions/notes", data),
-  getNotes: (sessionId: string) => api.get(`/api/v1/interactions/notes/${sessionId}`),
+  getNotes: (sessionId: string) =>
+    api.get(`/api/v1/interactions/notes/${sessionId}`),
 };
 
 export default api;

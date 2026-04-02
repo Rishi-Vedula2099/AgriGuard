@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Home, ScanLine, Clock, BarChart3, User } from "lucide-react";
+import { Home, ScanLine, Clock, BarChart3, User, BookOpen, Calendar, GraduationCap } from "lucide-react";
+import { useAuthStore } from "@/lib/store";
 
-const navItems = [
+const farmerNavItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/scan", label: "Scan", icon: ScanLine },
   { href: "/history", label: "History", icon: Clock },
@@ -13,19 +14,38 @@ const navItems = [
   { href: "/profile", label: "Profile", icon: User },
 ];
 
+const studentNavItems = [
+  { href: "/student", label: "Home", icon: Home },
+  { href: "/learn/sessions", label: "Sessions", icon: BookOpen },
+  { href: "/learn/bookings", label: "Bookings", icon: Calendar },
+  { href: "/learn/notes", label: "Notes", icon: GraduationCap },
+  { href: "/profile", label: "Profile", icon: User },
+];
+
 export default function BottomNav() {
   const pathname = usePathname();
+  const { isAuthenticated, user } = useAuthStore();
 
-  // Hide on auth and chat pages
-  if (pathname?.startsWith("/auth") || pathname?.startsWith("/chat")) return null;
+  // Hide on auth, welcome, chat pages, and on desktop (handled by Sidebar)
+  if (!isAuthenticated) return null;
+  if (
+    pathname?.startsWith("/auth") ||
+    pathname?.startsWith("/welcome") ||
+    pathname?.startsWith("/chat")
+  ) return null;
+
+  const role = user?.role || "FARMER";
+  const navItems = role === "STUDENT" ? studentNavItems : farmerNavItems;
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-50">
-      <div className="bg-white/90 backdrop-blur-xl border-t border-agri-border shadow-[0_-4px_24px_rgba(0,0,0,0.06)]">
+    // Only visible on mobile (< 1024px), hidden on desktop via CSS
+    <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden">
+      <div className="bg-white/95 backdrop-blur-xl border-t border-agri-border shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
         <div className="flex items-center justify-around px-2 py-1">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || 
-              (item.href !== "/" && pathname?.startsWith(item.href));
+            const isActive =
+              pathname === item.href ||
+              (item.href !== "/" && item.href !== "/student" && pathname?.startsWith(item.href));
             const Icon = item.icon;
 
             return (
@@ -50,9 +70,11 @@ export default function BottomNav() {
                 >
                   <Icon size={22} strokeWidth={isActive ? 2.5 : 1.8} />
                 </motion.div>
-                <span className={`text-[10px] font-medium transition-colors ${
-                  isActive ? "text-agri-green" : "text-gray-400"
-                }`}>
+                <span
+                  className={`text-[10px] font-medium transition-colors ${
+                    isActive ? "text-agri-green" : "text-gray-400"
+                  }`}
+                >
                   {item.label}
                 </span>
               </Link>

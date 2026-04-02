@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True
 
     # Database
-    DATABASE_URL: str = "sqlite:///./storage/agriguard.db"
+    DATABASE_URL: str = "postgresql://postgres:postgres@127.0.0.1:5433/agriguard"
 
     # JWT
     JWT_SECRET_KEY: str = "agriguard-dev-secret-key-change-in-production"

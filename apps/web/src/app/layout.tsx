@@ -31,8 +31,10 @@ export default function RootLayout({
           <Sidebar />
           
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0 pb-nav lg:pb-0 overflow-x-hidden">
-            {children}
+          <main className="app-main pb-nav lg:pb-0">
+            <div className="app-content">
+              {children}
+            </div>
           </main>
 
           {/* Bottom Nav for mobile (hidden on desktop/auth via component logic) */}
