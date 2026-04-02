@@ -1,16 +1,17 @@
 """
 Leaf Classifier — EfficientNet-B0 based crop disease classification
-Uses demo mode when no trained model is available.
+Falls back to Gemini Vision for real-time AI analysis when no trained model is available.
 """
 import os
-import random
+import base64
+import json
 import numpy as np
 from PIL import Image
 import io
 
 from classification.disease_labels import DISEASE_LABELS, format_label, get_disease_details
 
-# Try to import torch — fallback to demo mode if unavailable
+# Try to import torch — fallback to Gemini if unavailable
 try:
     import torch
     import torchvision.transforms as transforms
@@ -18,14 +19,50 @@ try:
     TORCH_AVAILABLE = True
 except ImportError:
     TORCH_AVAILABLE = False
-    print("⚠️ PyTorch not available — running in demo mode")
+    print("⚠️ PyTorch not available — will use Gemini Vision")
+
+# Try to import Gemini
+try:
+    import google.generativeai as genai
+    GEMINI_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
+    if GEMINI_API_KEY:
+        genai.configure(api_key=GEMINI_API_KEY)
+        GEMINI_AVAILABLE = True
+        print(f"✅ Gemini Vision available for real-time crop analysis")
+    else:
+        GEMINI_AVAILABLE = False
+        print("⚠️ GOOGLE_API_KEY not set — Gemini Vision unavailable")
+except ImportError:
+    GEMINI_AVAILABLE = False
+    print("⚠️ google-generativeai not installed — Gemini Vision unavailable")
 
 
 MODEL_PATH = os.environ.get("LEAF_MODEL_PATH", "../../storage/models/leaf_classifier.pt")
 
+GEMINI_CROP_PROMPT = """You are an expert agricultural plant pathologist with deep knowledge of crop diseases.
+
+Analyze this plant/leaf/field image and provide a detailed disease diagnosis.
+
+Respond ONLY with a valid JSON object in exactly this format (no markdown, no explanation):
+{
+  "disease_name": "exact disease name (e.g. 'Tomato Late Blight', 'Rice Brown Spot', 'Healthy') — be specific",
+  "crop": "crop/plant type detected (e.g. 'Tomato', 'Rice', 'Wheat', 'Corn', 'Unknown')",
+  "is_healthy": true or false,
+  "confidence": 0.XX (a float between 0.0 and 1.0 representing your confidence),
+  "symptoms": ["symptom 1", "symptom 2", "symptom 3"],
+  "causes": ["cause 1", "cause 2"],
+  "treatment": ["treatment recommendation 1", "treatment recommendation 2"],
+  "severity": "none" or "low" or "medium" or "high"
+}
+
+Be accurate — analyze the actual colors, patterns, spots, lesions, and textures you see.
+If this is not a plant image, set crop to "Unknown" and disease_name to "Not a plant image".
+If the plant appears healthy, set is_healthy to true and disease_name to "Healthy".
+"""
+
 
 class LeafClassifier:
-    """EfficientNet-B0 based leaf disease classifier."""
+    """EfficientNet-B0 based leaf disease classifier with Gemini Vision fallback."""
 
     def __init__(self):
         self.model = None
@@ -49,12 +86,11 @@ class LeafClassifier:
         ])
 
     def _load_model(self):
-        """Load the trained model or set up demo mode."""
+        """Load the trained model or set up Gemini/demo mode."""
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         if os.path.exists(MODEL_PATH):
             try:
-                # Load EfficientNet-B0 with custom classifier head
                 self.model = models.efficientnet_b0(weights=None)
                 num_classes = len(DISEASE_LABELS)
                 self.model.classifier[1] = torch.nn.Linear(
@@ -66,17 +102,25 @@ class LeafClassifier:
                 self.demo_mode = False
                 print(f"✅ Leaf classifier model loaded from {MODEL_PATH}")
             except Exception as e:
-                print(f"⚠️ Error loading model: {e} — using demo mode")
+                print(f"⚠️ Error loading model: {e} — using Gemini Vision")
                 self.demo_mode = True
         else:
-            print(f"⚠️ No model found at {MODEL_PATH} — using demo mode")
+            print(f"⚠️ No trained model at {MODEL_PATH} — using Gemini Vision for real-time analysis")
             self.demo_mode = True
 
     async def predict(self, image_bytes: bytes) -> dict:
         """Predict disease from leaf image bytes."""
-        if self.demo_mode:
-            return self._demo_predict()
+        # Priority: trained model > Gemini Vision > demo fallback
+        if not self.demo_mode and self.model is not None:
+            return await self._torch_predict(image_bytes)
 
+        if GEMINI_AVAILABLE:
+            return await self._gemini_predict(image_bytes)
+
+        return self._static_demo_predict()
+
+    async def _torch_predict(self, image_bytes: bytes) -> dict:
+        """Run inference using the trained PyTorch model."""
         try:
             image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
             input_tensor = self.transform(image).unsqueeze(0).to(self.device)
@@ -101,76 +145,82 @@ class LeafClassifier:
                 "symptoms": disease_details["symptoms"],
                 "causes": disease_details["causes"],
                 "model_version": "efficientnet_b0_v1",
+                "analysis_mode": "trained_model",
             }
         except Exception as e:
-            print(f"❌ Prediction error: {e}")
-            return self._demo_predict()
+            print(f"❌ PyTorch prediction error: {e} — falling back to Gemini")
+            if GEMINI_AVAILABLE:
+                return await self._gemini_predict(image_bytes)
+            return self._static_demo_predict()
 
-    def _demo_predict(self) -> dict:
-        """Generate a realistic demo prediction."""
-        demo_diseases = [
-            {
-                "disease_name": "Tomato Late Blight",
-                "crop": "Tomato",
-                "is_healthy": False,
-                "confidence": round(random.uniform(0.78, 0.95), 4),
-                "symptoms": [
-                    "Dark brown spots on leaves",
-                    "White fuzzy growth on leaf underside",
-                    "Leaves turning yellow and wilting",
-                    "Dark lesions on stems",
-                ],
-                "causes": [
-                    "Caused by Phytophthora infestans",
-                    "Spreads rapidly in cool, wet conditions",
-                    "Can survive in infected plant debris",
-                ],
-            },
-            {
-                "disease_name": "Rice Brown Spot",
-                "crop": "Rice",
-                "is_healthy": False,
-                "confidence": round(random.uniform(0.72, 0.92), 4),
-                "symptoms": [
-                    "Brown oval spots on leaves",
-                    "Gray centers with brown margins",
-                    "Severe leaf drying in advanced stages",
-                ],
-                "causes": [
-                    "Caused by Bipolaris oryzae fungus",
-                    "Associated with nutrient-deficient soils",
-                    "Spread through infected seeds",
-                ],
-            },
-            {
-                "disease_name": "Wheat Brown Rust",
-                "crop": "Wheat",
-                "is_healthy": False,
-                "confidence": round(random.uniform(0.80, 0.94), 4),
-                "symptoms": [
-                    "Small round brown-orange pustules on leaves",
-                    "Random distribution on leaf surface",
-                    "Premature yellowing and drying of leaves",
-                ],
-                "causes": [
-                    "Caused by Puccinia triticina fungus",
-                    "Spread by wind-borne spores",
-                    "Favored by moderate temperatures and moisture",
-                ],
-            },
-            {
-                "disease_name": "Healthy",
-                "crop": "Tomato",
-                "is_healthy": True,
-                "confidence": round(random.uniform(0.90, 0.99), 4),
-                "symptoms": [],
-                "causes": [],
-            },
-        ]
+    async def _gemini_predict(self, image_bytes: bytes) -> dict:
+        """Use Gemini Vision API to analyze the actual crop image in real-time."""
+        try:
+            model_name = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
+            gemini_model = genai.GenerativeModel(model_name)
 
-        result = random.choice(demo_diseases)
-        result["model_version"] = "demo_v1"
-        return result
+            # Prepare the image for Gemini
+            image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+            # Resize if too large to save API bandwidth
+            max_size = 1024
+            if max(image.size) > max_size:
+                image.thumbnail((max_size, max_size), Image.LANCZOS)
+
+            img_buffer = io.BytesIO()
+            image.save(img_buffer, format="JPEG", quality=85)
+            img_bytes = img_buffer.getvalue()
+
+            # Call Gemini Vision
+            response = gemini_model.generate_content([
+                GEMINI_CROP_PROMPT,
+                {"mime_type": "image/jpeg", "data": img_bytes}
+            ])
+
+            text = response.text.strip()
+            # Strip markdown code fences if present
+            if text.startswith("```"):
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
+            text = text.strip()
+
+            result = json.loads(text)
+
+            # Normalize and validate the response
+            return {
+                "disease_name": result.get("disease_name", "Unknown"),
+                "crop": result.get("crop", "Unknown"),
+                "is_healthy": result.get("is_healthy", False),
+                "confidence": float(result.get("confidence", 0.85)),
+                "symptoms": result.get("symptoms", []),
+                "causes": result.get("causes", []),
+                "treatment": result.get("treatment", []),
+                "severity": result.get("severity", "medium"),
+                "model_version": f"gemini-vision-{model_name}",
+                "analysis_mode": "gemini_vision",
+            }
+
+        except json.JSONDecodeError as e:
+            print(f"⚠️ Gemini returned invalid JSON: {e}")
+            return self._static_demo_predict()
+        except Exception as e:
+            print(f"❌ Gemini Vision error: {e}")
+            return self._static_demo_predict()
+
+    def _static_demo_predict(self) -> dict:
+        """Last-resort static fallback — clearly marked as demo."""
+        return {
+            "disease_name": "Analysis Unavailable",
+            "crop": "Unknown",
+            "is_healthy": False,
+            "confidence": 0.0,
+            "symptoms": ["Unable to analyze image at this time"],
+            "causes": ["AI service temporarily unavailable"],
+            "treatment": ["Please try again or consult a local agronomist"],
+            "severity": "unknown",
+            "model_version": "fallback_v1",
+            "analysis_mode": "demo_fallback",
+        }
 
 
 # Singleton instance

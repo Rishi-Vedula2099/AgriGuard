@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
+import Sidebar from "@/components/Sidebar";
 import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
@@ -24,14 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased bg-agri-bg min-h-screen flex flex-col lg:flex-row">
         <Providers>
-          <div className="app-container">
-            <main className="pb-nav">
-              {children}
-            </main>
-            <BottomNav />
-          </div>
+          {/* Sidebar for desktop (hidden on mobile/auth via component logic) */}
+          <Sidebar />
+          
+          {/* Main Content Area */}
+          <main className="flex-1 min-w-0 pb-nav lg:pb-0 overflow-x-hidden">
+            {children}
+          </main>
+
+          {/* Bottom Nav for mobile (hidden on desktop/auth via component logic) */}
+          <BottomNav />
         </Providers>
       </body>
     </html>

@@ -1,12 +1,45 @@
 """
 Field Segmenter — U-Net based field disease segmentation
-Uses demo mode when no trained model is available.
+Uses Gemini Vision when no trained model is available for real-time field analysis.
 """
 import os
 import random
+import json
 import numpy as np
 from PIL import Image
 import io
+
+# Try to import Gemini
+try:
+    import google.generativeai as genai
+    GEMINI_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
+    if GEMINI_API_KEY:
+        genai.configure(api_key=GEMINI_API_KEY)
+        GEMINI_AVAILABLE = True
+    else:
+        GEMINI_AVAILABLE = False
+except ImportError:
+    GEMINI_AVAILABLE = False
+
+GEMINI_FIELD_PROMPT = """You are an expert agronomist analyzing a field/crop image.
+
+Analyze this image and provide a field health assessment.
+
+Respond ONLY with a valid JSON object (no markdown):
+{
+  "disease_name": "main disease or condition detected (e.g. 'Leaf Blight', 'Nitrogen Deficiency', 'Healthy')",
+  "crop": "crop type visible in the field",
+  "infected_area_pct": number between 0 and 100 representing % of field affected,
+  "severity": "none" or "low" or "medium" or "high",
+  "spread_pattern": "localized" or "clustered" or "widespread" or "none",
+  "risk_level": "low" or "moderate" or "high" or "critical",
+  "insights": ["insight 1", "insight 2", "insight 3"],
+  "recommendations": ["recommendation 1", "recommendation 2"]
+}
+
+Analyze the actual colors, patterns, affected areas, and crop condition visible in the image.
+If the field looks healthy, set infected_area_pct to 0, severity to "none", disease_name to "Healthy".
+"""
 
 try:
     import torch
@@ -130,23 +163,26 @@ class FieldSegmenter:
 
     async def predict(self, image_bytes: bytes) -> dict:
         """Segment field image and analyze disease spread."""
-        if self.demo_mode:
-            return self._demo_predict(image_bytes)
+        if not self.demo_mode and self.model is not None:
+            try:
+                image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+                input_tensor = self.transform(image).unsqueeze(0).to(self.device)
 
-        try:
-            image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-            input_tensor = self.transform(image).unsqueeze(0).to(self.device)
+                with torch.no_grad():
+                    mask = self.model(input_tensor)
 
-            with torch.no_grad():
-                mask = self.model(input_tensor)
+                mask_np = mask.squeeze().cpu().numpy()
+                binary_mask = (mask_np > 0.5).astype(np.uint8)
 
-            mask_np = mask.squeeze().cpu().numpy()
-            binary_mask = (mask_np > 0.5).astype(np.uint8)
+                return self._analyze_mask(binary_mask, image_bytes)
+            except Exception as e:
+                print(f"❌ Segmentation error: {e}")
 
-            return self._analyze_mask(binary_mask, image_bytes)
-        except Exception as e:
-            print(f"❌ Segmentation error: {e}")
-            return self._demo_predict(image_bytes)
+        # Fall back to Gemini Vision for real-time analysis
+        if GEMINI_AVAILABLE:
+            return await self._gemini_predict(image_bytes)
+
+        return self._static_demo()
 
     def _analyze_mask(self, binary_mask: np.ndarray, original_bytes: bytes) -> dict:
         """Analyze the segmentation mask to extract disease metrics."""
@@ -223,29 +259,60 @@ class FieldSegmenter:
 
         return insights
 
-    def _demo_predict(self, image_bytes: bytes = None) -> dict:
-        """Generate a realistic demo segmentation result."""
+    async def _gemini_predict(self, image_bytes: bytes) -> dict:
+        """Use Gemini Vision to analyze the actual field image."""
+        try:
+            model_name = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
+            gemini_model = genai.GenerativeModel(model_name)
+
+            image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+            max_size = 1024
+            if max(image.size) > max_size:
+                image.thumbnail((max_size, max_size), Image.LANCZOS)
+
+            img_buffer = io.BytesIO()
+            image.save(img_buffer, format="JPEG", quality=85)
+            img_bytes = img_buffer.getvalue()
+
+            response = gemini_model.generate_content([
+                GEMINI_FIELD_PROMPT,
+                {"mime_type": "image/jpeg", "data": img_bytes}
+            ])
+
+            text = response.text.strip()
+            if text.startswith("```"):
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
+            text = text.strip()
+
+            result = json.loads(text)
+            return {
+                "disease_name": result.get("disease_name", "Unknown"),
+                "crop": result.get("crop", "Unknown"),
+                "infected_area_pct": float(result.get("infected_area_pct", 0)),
+                "severity": result.get("severity", "low"),
+                "spread_pattern": result.get("spread_pattern", "localized"),
+                "risk_level": result.get("risk_level", "low"),
+                "insights": result.get("insights", []),
+                "recommendations": result.get("recommendations", []),
+                "model_version": f"gemini-field-{model_name}",
+                "analysis_mode": "gemini_vision",
+            }
+        except Exception as e:
+            print(f"❌ Gemini field analysis error: {e}")
+            return self._static_demo()
+
+    def _static_demo(self) -> dict:
+        """Last-resort static fallback."""
         infected_pct = round(random.uniform(5, 75), 1)
-
-        if infected_pct < 25:
-            severity = "low"
-        elif infected_pct < 60:
-            severity = "medium"
-        else:
-            severity = "high"
-
-        spread_patterns = ["localized", "clustered", "widespread"]
-        spread = random.choice(spread_patterns)
-
-        if severity == "high" and spread == "widespread":
-            risk = "critical"
-        elif severity == "high" or spread == "widespread":
-            risk = "high"
-        elif severity == "medium":
-            risk = "moderate"
-        else:
-            risk = "low"
-
+        severity = "low" if infected_pct < 25 else ("medium" if infected_pct < 60 else "high")
+        spread = random.choice(["localized", "clustered", "widespread"])
+        risk = "critical" if severity == "high" and spread == "widespread" else (
+            "high" if severity == "high" or spread == "widespread" else (
+                "moderate" if severity == "medium" else "low"
+            )
+        )
         return {
             "infected_area_pct": infected_pct,
             "severity": severity,
@@ -253,10 +320,14 @@ class FieldSegmenter:
             "spread_pattern": spread,
             "risk_level": risk,
             "num_infected_zones": random.randint(1, 8),
-            "heatmap_path": None,
-            "insights": self._generate_insights(infected_pct, severity, spread, risk),
+            "insights": [f"{infected_pct}% of field appears affected"],
             "model_version": "demo_v1",
+            "analysis_mode": "demo_fallback",
         }
+
+    def _demo_predict(self, image_bytes: bytes = None) -> dict:
+        """Backward-compat demo predict — calls static demo."""
+        return self._static_demo()
 
 
 # Singleton instance

@@ -1,19 +1,29 @@
 """
-Auth Router — OTP-based login, JWT token management
+Auth Router — Email/Password + OTP login, JWT token management, RBAC role selection
 """
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
+from typing import Optional
 
 from database import get_db
 from services.auth_service import AuthService
 from middleware.auth_middleware import get_current_user
-from models.user import User
+from models.user import User, RoleEnum
 
 router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
 
 
 # ─── Request/Response Schemas ───
+
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: str
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
 
 class OTPRequest(BaseModel):
     phone: str
@@ -32,13 +42,92 @@ class RefreshRequest(BaseModel):
     refresh_token: str
 
 class UserUpdateRequest(BaseModel):
-    name: str | None = None
-    region: str | None = None
-    state: str | None = None
-    language: str | None = None
+    name: Optional[str] = None
+    region: Optional[str] = None
+    state: Optional[str] = None
+    language: Optional[str] = None
+
+class RoleSelectRequest(BaseModel):
+    role: str  # "FARMER" or "STUDENT"
 
 
-# ─── Routes ───
+# ─── Helper ───
+
+def _user_dict(user: User) -> dict:
+    return {
+        "id": user.id,
+        "email": user.email,
+        "phone": user.phone,
+        "name": user.name,
+        "region": user.region,
+        "role": user.role.value if user.role else "FARMER",
+        "role_selected": user.role_selected,
+    }
+
+
+# ─── Email / Password Routes ───
+
+@router.post("/register", response_model=TokenResponse, status_code=201)
+async def register(request: RegisterRequest, db: Session = Depends(get_db)):
+    """Register a new user with email and password."""
+    if not request.email or "@" not in request.email:
+        raise HTTPException(status_code=400, detail="Invalid email address")
+    if len(request.password) < 6:
+        raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+    if not request.name or len(request.name.strip()) < 2:
+        raise HTTPException(status_code=400, detail="Name must be at least 2 characters")
+
+    user = AuthService.register_user(db, request.email, request.password, request.name)
+    if user is None:
+        raise HTTPException(status_code=409, detail="An account with this email already exists")
+
+    access_token = AuthService.create_access_token({"sub": user.id})
+    refresh_token = AuthService.create_refresh_token({"sub": user.id})
+
+    return TokenResponse(
+        access_token=access_token,
+        refresh_token=refresh_token,
+        user=_user_dict(user),
+    )
+
+
+@router.post("/login", response_model=TokenResponse)
+async def login(request: LoginRequest, db: Session = Depends(get_db)):
+    """Login with email and password."""
+    user = AuthService.authenticate_user(db, request.email, request.password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect email or password",
+        )
+
+    access_token = AuthService.create_access_token({"sub": user.id})
+    refresh_token = AuthService.create_refresh_token({"sub": user.id})
+
+    return TokenResponse(
+        access_token=access_token,
+        refresh_token=refresh_token,
+        user=_user_dict(user),
+    )
+
+
+@router.put("/role")
+async def select_role(
+    request: RoleSelectRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Set the user's role (FARMER or STUDENT)."""
+    try:
+        role = RoleEnum(request.role.upper())
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Role must be FARMER or STUDENT")
+
+    user = AuthService.set_user_role(db, current_user, role)
+    return {"message": "Role updated", "user": _user_dict(user)}
+
+
+# ─── OTP Routes (legacy / phone-based) ───
 
 @router.post("/send-otp")
 async def send_otp(request: OTPRequest):
@@ -64,32 +153,24 @@ async def verify_otp(request: OTPVerifyRequest, db: Session = Depends(get_db)):
         )
 
     user = AuthService.get_or_create_user(db, request.phone)
-    
     access_token = AuthService.create_access_token({"sub": user.id})
     refresh_token = AuthService.create_refresh_token({"sub": user.id})
 
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,
-        user={
-            "id": user.id,
-            "phone": user.phone,
-            "name": user.name,
-            "region": user.region,
-            "role": user.role,
-        },
+        user=_user_dict(user),
     )
 
+
+# ─── Token Refresh / Profile ───
 
 @router.post("/refresh", response_model=TokenResponse)
 async def refresh_token(request: RefreshRequest, db: Session = Depends(get_db)):
     """Refresh access token using refresh token."""
     payload = AuthService.verify_token(request.refresh_token)
     if not payload or payload.get("type") != "refresh":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid refresh token",
-        )
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid refresh token")
 
     user_id = payload.get("sub")
     user = db.query(User).filter(User.id == user_id).first()
@@ -97,34 +178,19 @@ async def refresh_token(request: RefreshRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
 
     access_token = AuthService.create_access_token({"sub": user.id})
-    refresh_token = AuthService.create_refresh_token({"sub": user.id})
+    refresh_token_new = AuthService.create_refresh_token({"sub": user.id})
 
     return TokenResponse(
         access_token=access_token,
-        refresh_token=refresh_token,
-        user={
-            "id": user.id,
-            "phone": user.phone,
-            "name": user.name,
-            "region": user.region,
-            "role": user.role,
-        },
+        refresh_token=refresh_token_new,
+        user=_user_dict(user),
     )
 
 
 @router.get("/me")
 async def get_profile(current_user: User = Depends(get_current_user)):
     """Get current user profile."""
-    return {
-        "id": current_user.id,
-        "phone": current_user.phone,
-        "name": current_user.name,
-        "region": current_user.region,
-        "state": current_user.state,
-        "language": current_user.language,
-        "role": current_user.role,
-        "created_at": current_user.created_at.isoformat() if current_user.created_at else None,
-    }
+    return _user_dict(current_user)
 
 
 @router.put("/me")
@@ -145,15 +211,4 @@ async def update_profile(
 
     db.commit()
     db.refresh(current_user)
-
-    return {
-        "message": "Profile updated",
-        "user": {
-            "id": current_user.id,
-            "phone": current_user.phone,
-            "name": current_user.name,
-            "region": current_user.region,
-            "state": current_user.state,
-            "language": current_user.language,
-        },
-    }
+    return {"message": "Profile updated", "user": _user_dict(current_user)}
