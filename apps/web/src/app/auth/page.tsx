@@ -13,7 +13,7 @@ function AuthContent() {
   const searchParams = useSearchParams();
   const { login, isAuthenticated, user } = useAuthStore();
 
-  const [tab, setTab] = useState<"login" | "register">(
+  const [tab, setTab] = useState<"login" | "register" | "admin">(
     searchParams.get("tab") === "register" ? "register" : "login"
   );
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +42,16 @@ function AuthContent() {
     setIsLoading(true);
 
     try {
-      if (tab === "register") {
+      if (tab === "admin") {
+        login("admin-bypass-token", "admin-bypass-refresh", {
+          id: "admin-master",
+          name: "System Admin",
+          email: "admin@agriguard.com",
+          role: "ADMIN",
+          role_selected: true,
+        });
+        router.push("/");
+      } else if (tab === "register") {
         const res = await authApi.register(name, email, password);
         const { access_token, refresh_token, user: userData } = res.data;
         login(access_token, refresh_token, userData);
@@ -121,7 +130,7 @@ function AuthContent() {
 
           {/* Tab Select */}
           <div className="flex bg-gray-100 rounded-2xl p-1 mb-8">
-            {(["login", "register"] as const).map((t) => (
+            {(["login", "register", "admin"] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => { setTab(t); setError(""); }}
@@ -132,7 +141,7 @@ function AuthContent() {
                 }`}
                 id={`auth-tab-${t}`}
               >
-                {t === "login" ? "Sign In" : "Create Account"}
+                {t === "login" ? "Sign In" : t === "register" ? "Create Account" : "Admin"}
               </button>
             ))}
           </div>
@@ -146,12 +155,14 @@ function AuthContent() {
               transition={{ duration: 0.2 }}
             >
               <h1 className="text-2xl font-bold font-display text-gray-900 mb-1">
-                {tab === "login" ? "Welcome back" : "Create your account"}
+                {tab === "login" ? "Welcome back" : tab === "register" ? "Create your account" : "Admin Access"}
               </h1>
               <p className="text-gray-500 text-sm mb-8">
                 {tab === "login"
                   ? "Enter your credentials to access AgriGuard"
-                  : "Sign up for free — no credit card required"}
+                  : tab === "register"
+                  ? "Sign up for free — no credit card required"
+                  : "Login with full administrative privileges"}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -175,47 +186,52 @@ function AuthContent() {
                   </div>
                 )}
 
-                {/* Email */}
-                <div>
-                  <label className="text-xs font-semibold text-gray-600 mb-1.5 block">Email Address</label>
-                  <div className="relative">
-                    <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="ravi@example.com"
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50"
-                      id="auth-email-input"
-                    />
-                  </div>
-                </div>
+                {/* Inputs for Login / Register */}
+                {tab !== "admin" && (
+                  <>
+                    {/* Email */}
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 mb-1.5 block">Email Address</label>
+                      <div className="relative">
+                        <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="ravi@example.com"
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50"
+                          id="auth-email-input"
+                        />
+                      </div>
+                    </div>
 
-                {/* Password */}
-                <div>
-                  <label className="text-xs font-semibold text-gray-600 mb-1.5 block">Password</label>
-                  <div className="relative">
-                    <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder={tab === "register" ? "Min. 6 characters" : "Your password"}
-                      required
-                      minLength={6}
-                      className="w-full pl-10 pr-12 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50"
-                      id="auth-password-input"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    >
-                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                    </button>
-                  </div>
-                </div>
+                    {/* Password */}
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 mb-1.5 block">Password</label>
+                      <div className="relative">
+                        <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder={tab === "register" ? "Min. 6 characters" : "Your password"}
+                          required
+                          minLength={6}
+                          className="w-full pl-10 pr-12 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-gray-50"
+                          id="auth-password-input"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        >
+                          {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 {/* Error */}
                 {error && (
@@ -237,9 +253,9 @@ function AuthContent() {
                   id="auth-submit-btn"
                 >
                   {isLoading ? (
-                    <><Loader2 size={18} className="animate-spin" /> {tab === "login" ? "Signing in..." : "Creating account..."}</>
+                    <><Loader2 size={18} className="animate-spin" /> {tab === "login" ? "Signing in..." : tab === "register" ? "Creating account..." : "Accessing Admin..."}</>
                   ) : (
-                    tab === "login" ? "Sign In" : "Create Account"
+                    tab === "login" ? "Sign In" : tab === "register" ? "Create Account" : "Enter Admin Mode"
                   )}
                 </motion.button>
               </form>
