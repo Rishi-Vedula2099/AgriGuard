@@ -27,9 +27,14 @@ async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
     # Startup
     print("🌱 AgriGuard Backend starting...")
-    create_tables()
+    try:
+        create_tables()
+        print(f"✅ Database tables created/verified")
+    except Exception as e:
+        print(f"⚠️  ERROR: Could not create database tables: {e}")
+        print("   The app will attempt to continue, but DB operations might fail.")
+    
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
-    print(f"✅ Database tables created")
     print(f"✅ Upload directory: {settings.UPLOAD_DIR}")
     print(f"🚀 AgriGuard Backend ready!")
     yield
