@@ -18,6 +18,7 @@ from routers.learn_bookings import router as learn_bookings_router
 from routers.learn_payments import router as learn_payments_router
 from routers.learn_interactions import router as learn_interactions_router
 from routers.crops import router as crops_router
+from api import router as api_router
 
 settings = get_settings()
 
@@ -67,11 +68,16 @@ app.include_router(auth_router)
 app.include_router(scan_router)
 app.include_router(history_router)
 app.include_router(analytics_router)
-app.include_router(learn_sessions_router)
-app.include_router(learn_bookings_router)
-app.include_router(learn_payments_router)
-app.include_router(learn_interactions_router)
 app.include_router(crops_router)
+
+# Versioned API
+app.include_router(api_router, prefix="/api")
+
+# Legacy Routers (Deprecated)
+app.include_router(learn_sessions_router, prefix="/legacy/learn", tags=["Legacy"])
+app.include_router(learn_bookings_router, prefix="/legacy/learn", tags=["Legacy"])
+app.include_router(learn_payments_router, prefix="/legacy/learn", tags=["Legacy"])
+app.include_router(learn_interactions_router, prefix="/legacy/learn", tags=["Legacy"])
 
 @app.get("/")
 async def root():
