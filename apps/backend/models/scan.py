@@ -6,7 +6,10 @@ from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 import uuid
 
-from database import Base
+try:
+    from database import Base
+except ImportError:
+    from apps.backend.database import Base
 
 
 class Scan(Base):
@@ -32,7 +35,7 @@ class Scan(Base):
     # Metadata
     crop_type = Column(String(100), nullable=True)
     notes = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
     # Relationships
     user = relationship("User", back_populates="scans")

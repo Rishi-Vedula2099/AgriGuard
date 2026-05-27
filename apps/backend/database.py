@@ -6,7 +6,10 @@ from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from sqlalchemy.exc import OperationalError
 import logging
 
-from config import get_settings
+try:
+    from config import get_settings
+except ImportError:
+    from apps.backend.config import get_settings
 
 settings = get_settings()
 logger = logging.getLogger("uvicorn.error")
@@ -37,15 +40,15 @@ def get_engine():
             # We only do the pre-check for remote DBs like Postgres
             with new_engine.connect() as conn:
                 conn.execute(text("SELECT 1"))
-            print("✅ Database connection established (Postgres)")
+            print("[DB] Database connection established (Postgres)")
         
         return new_engine
         
     except (OperationalError, Exception) as e:
         if is_postgres:
-            print(f"⚠️  WARNING: Failed to connect to Postgres at {primary_url}")
+            print(f"[WARNING] Failed to connect to Postgres at {primary_url}")
             print(f"   Error: {str(e).splitlines()[0]}")
-            print(f"🔄 Falling back to local SQLite database: sqlite:///./agriguard.db")
+            print(f"[FALLBACK] Falling back to local SQLite database: sqlite:///./agriguard.db")
             
             return create_engine(
                 "sqlite:///./agriguard.db",

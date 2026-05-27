@@ -8,13 +8,17 @@ import uuid
 from enum import Enum
 from sqlalchemy import Enum as SQLAlchemyEnum
 
-from database import Base
+try:
+    from database import Base
+except ImportError:
+    from apps.backend.database import Base
 
 
 class RoleEnum(str, Enum):
     STUDENT = "STUDENT"
     FARMER = "FARMER"
     ADMIN = "ADMIN"
+    AGRONOMIST = "AGRONOMIST"
 
 class User(Base):
     __tablename__ = "users"

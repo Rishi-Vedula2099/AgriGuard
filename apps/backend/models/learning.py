@@ -1,6 +1,7 @@
 """
 AgriGuard Learn Models
 """
+# TODO: Deprecated after v2.1 migration. Legacy learning models.
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Text, Enum as SQLAlchemyEnum
 from sqlalchemy.orm import relationship
 from enum import Enum
