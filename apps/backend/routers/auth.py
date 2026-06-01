@@ -1,17 +1,30 @@
 """
 Auth Router — Email/Password + OTP login, JWT token management, RBAC role selection
 """
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 from typing import Optional
+try:
+    from utils.logger import StructuredLogger
+    from database import get_db
+    from services.auth_service import AuthService
+    from middleware.auth_middleware import get_current_user
+    from models.user import User, RoleEnum
+    from middleware.rate_limit import auth_rate_limit
+except ImportError:
+    from apps.backend.utils.logger import StructuredLogger
+    from apps.backend.database import get_db
+    from apps.backend.services.auth_service import AuthService
+    from apps.backend.middleware.auth_middleware import get_current_user
+    from apps.backend.models.user import User, RoleEnum
+    from apps.backend.middleware.rate_limit import auth_rate_limit
 
-from database import get_db
-from services.auth_service import AuthService
-from middleware.auth_middleware import get_current_user
-from models.user import User, RoleEnum
-
-router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
+router = APIRouter(
+    prefix="/api/v1/auth",
+    tags=["Authentication"],
+    dependencies=[Depends(auth_rate_limit)]
+)
 
 
 # ─── Request/Response Schemas ───
@@ -68,8 +81,9 @@ def _user_dict(user: User) -> dict:
 # ─── Email / Password Routes ───
 
 @router.post("/register", response_model=TokenResponse, status_code=201)
-async def register(request: RegisterRequest, db: Session = Depends(get_db)):
+async def register(request: RegisterRequest, req: Request, db: Session = Depends(get_db)):
     """Register a new user with email and password."""
+    client_ip = req.client.host if req.client else "unknown"
     if not request.email or "@" not in request.email:
         raise HTTPException(status_code=400, detail="Invalid email address")
     if len(request.password) < 6:
@@ -79,11 +93,13 @@ async def register(request: RegisterRequest, db: Session = Depends(get_db)):
 
     user = AuthService.register_user(db, request.email, request.password, request.name)
     if user is None:
+        StructuredLogger.user_login("", request.email, "register_conflict", client_ip)
         raise HTTPException(status_code=409, detail="An account with this email already exists")
 
     access_token = AuthService.create_access_token({"sub": user.id})
     refresh_token = AuthService.create_refresh_token({"sub": user.id})
 
+    StructuredLogger.user_login(user.id, user.email, "registered", client_ip)
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,
@@ -92,10 +108,12 @@ async def register(request: RegisterRequest, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=TokenResponse)
-async def login(request: LoginRequest, db: Session = Depends(get_db)):
+async def login(request: LoginRequest, req: Request, db: Session = Depends(get_db)):
     """Login with email and password."""
+    client_ip = req.client.host if req.client else "unknown"
     user = AuthService.authenticate_user(db, request.email, request.password)
     if not user:
+        StructuredLogger.user_login("", request.email, "failure", client_ip)
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect email or password",
@@ -104,6 +122,7 @@ async def login(request: LoginRequest, db: Session = Depends(get_db)):
     access_token = AuthService.create_access_token({"sub": user.id})
     refresh_token = AuthService.create_refresh_token({"sub": user.id})
 
+    StructuredLogger.user_login(user.id, user.email, "success", client_ip)
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,

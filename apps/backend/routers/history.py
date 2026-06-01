@@ -8,6 +8,7 @@ from database import get_db
 from middleware.auth_middleware import get_current_user
 from models.user import User
 from models.scan import Scan
+from services.cache_service import RedisCacheService
 
 router = APIRouter(prefix="/api/v1/history", tags=["History"])
 
@@ -20,7 +21,13 @@ async def get_history(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """Get paginated scan history for the current user."""
+    """Get paginated scan history for the current user (Cache-Aside)."""
+    # 1. Attempt to load from cache
+    cached_history = RedisCacheService.get_history_cache(current_user.id, page, limit, scan_type)
+    if cached_history is not None:
+        return cached_history
+
+    # 2. Fetch from DB on cache miss
     query = db.query(Scan).filter(Scan.user_id == current_user.id)
 
     if scan_type:
@@ -34,7 +41,7 @@ async def get_history(
         .all()
     )
 
-    return {
+    result = {
         "total": total,
         "page": page,
         "limit": limit,
@@ -53,6 +60,10 @@ async def get_history(
         ],
     }
 
+    # 3. Store in cache for future calls
+    RedisCacheService.set_history_cache(current_user.id, page, limit, scan_type, result)
+    return result
+
 
 @router.delete("/{scan_id}")
 async def delete_scan(
@@ -60,11 +71,14 @@ async def delete_scan(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """Delete a scan from history."""
+    """Delete a scan from history and invalidate cache."""
     scan = db.query(Scan).filter(Scan.id == scan_id, Scan.user_id == current_user.id).first()
     if not scan:
         raise HTTPException(status_code=404, detail="Scan not found")
 
     db.delete(scan)
     db.commit()
+
+    # Invalidate cache for the user
+    RedisCacheService.invalidate_history_cache(current_user.id)
     return {"message": "Scan deleted successfully"}

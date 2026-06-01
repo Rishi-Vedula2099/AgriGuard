@@ -1,3 +1,4 @@
+# TODO: Deprecated after v2.1 migration. Legacy learning modules.
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
