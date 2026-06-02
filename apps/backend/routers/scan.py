@@ -8,8 +8,14 @@ from database import get_db
 from middleware.auth_middleware import get_current_user
 from models.user import User
 from services.scan_service import ScanService
+from middleware.rate_limit import upload_rate_limit
+from fastapi import Depends
 
-router = APIRouter(prefix="/api/v1/scan", tags=["Scan"])
+router = APIRouter(
+    prefix="/api/v1/scan",
+    tags=["Scan"],
+    dependencies=[Depends(upload_rate_limit)]
+)
 
 
 @router.post("/leaf")

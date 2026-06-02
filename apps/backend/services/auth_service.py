@@ -9,8 +9,14 @@ import string
 import hashlib
 import hmac
 
-from config import get_settings
-from models.user import User, RoleEnum
+try:
+    from config import get_settings
+    from models.user import User, RoleEnum
+except ImportError:
+    from apps.backend.config import get_settings
+    from apps.backend.models.user import User, RoleEnum
+
+import bcrypt
 
 settings = get_settings()
 
@@ -19,12 +25,22 @@ _otp_store: dict[str, dict] = {}
 
 
 def _hash_password(password: str) -> str:
-    """Hash password using SHA-256 (simple, no extra deps needed)."""
-    return hashlib.sha256(password.encode()).hexdigest()
+    """Hash password using Bcrypt directly."""
+    pwd_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(pwd_bytes, salt)
+    return hashed.decode('utf-8')
 
 
 def _verify_password(plain: str, hashed: str) -> bool:
-    return hmac.compare_digest(hashlib.sha256(plain.encode()).hexdigest(), hashed)
+    """Verify password using Bcrypt with fallback support for plain SHA-256."""
+    # If the database hash is a 64-char hex string, treat as SHA-256 fallback
+    if len(hashed) == 64 and all(c in "0123456789abcdefABCDEF" for c in hashed):
+        return hmac.compare_digest(hashlib.sha256(plain.encode()).hexdigest(), hashed)
+    try:
+        return bcrypt.checkpw(plain.encode('utf-8'), hashed.encode('utf-8'))
+    except Exception:
+        return False
 
 
 class AuthService:
