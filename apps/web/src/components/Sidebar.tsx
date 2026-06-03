@@ -4,27 +4,19 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
-  Home, ScanLine, Clock, BarChart3, User, BookOpen,
-  Calendar, GraduationCap, Leaf, DollarSign, LogOut,
-  Settings, ChevronRight
+  Home, ScanLine, Clock, BarChart3, User, Sprout,
+  Droplets, Map as MapIcon, Leaf, LogOut,
+  ShieldCheck, ThermometerSun
 } from "lucide-react";
 import { useAuthStore } from "@/lib/store";
 
-const farmerNavItems = [
+const mainNavItems = [
   { href: "/", label: "Dashboard", icon: Home },
-  { href: "/scan", label: "Crop Scan", icon: ScanLine },
-  { href: "/history", label: "Scan History", icon: Clock },
-  { href: "/insights", label: "Analytics", icon: BarChart3 },
-  { href: "/farmer/my-sessions", label: "My Sessions", icon: Calendar },
-  { href: "/farmer/earnings", label: "Earnings", icon: DollarSign },
-  { href: "/profile", label: "Profile", icon: User },
-];
-
-const studentNavItems = [
-  { href: "/student", label: "Dashboard", icon: Home },
-  { href: "/learn/sessions", label: "Browse Sessions", icon: BookOpen },
-  { href: "/learn/bookings", label: "My Bookings", icon: Calendar },
-  { href: "/learn/notes", label: "My Notes", icon: GraduationCap },
+  { href: "/scan", label: "AI Scan", icon: ScanLine },
+  { href: "/crops", label: "Crop Intel", icon: Sprout },
+  { href: "/climate", label: "Climate Radar", icon: MapIcon },
+  { href: "/irrigation", label: "Irrigation", icon: Droplets },
+  { href: "/history", label: "Intelligence Logs", icon: Clock },
   { href: "/profile", label: "Profile", icon: User },
 ];
 
@@ -43,64 +35,54 @@ export default function Sidebar() {
     pathname?.startsWith("/scan/field-result")
   ) return null;
 
-  const role = user?.role || "FARMER";
-  const navItems = role === "STUDENT" ? studentNavItems : farmerNavItems;
-
   const handleLogout = () => {
     logout();
     router.push("/welcome");
   };
 
   return (
-    <aside className="app-sidebar">
+    <aside className="app-sidebar bg-[#050a08] border-r border-white/5 w-72 flex flex-col h-screen fixed left-0 top-0 z-40">
       {/* Logo */}
-      <div className="px-6 mb-8">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl gradient-green flex items-center justify-center shadow-lg shadow-green-200">
-            <Leaf size={20} className="text-white" />
+      <div className="px-8 py-10">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-2xl shadow-emerald-500/20">
+            <Leaf size={24} className="text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold font-display text-agri-text">AgriGuard</h1>
-            <p className="text-[10px] text-agri-text-secondary">AI Farming Platform</p>
+            <h1 className="text-xl font-bold font-display text-white tracking-tight">AgriGuard</h1>
+            <p className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest">AI Intelligence</p>
           </div>
-        </div>
-      </div>
-
-      {/* Role Badge */}
-      <div className="px-6 mb-6">
-        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold ${
-          role === "STUDENT"
-            ? "bg-blue-50 text-blue-700 border border-blue-100"
-            : "bg-emerald-50 text-emerald-700 border border-emerald-100"
-        }`}>
-          {role === "STUDENT" ? <GraduationCap size={12} /> : <Leaf size={12} />}
-          {role === "STUDENT" ? "Student" : "Farmer"}
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-0">
-        <p className="px-6 text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
-          Main Menu
+      <nav className="flex-1 px-4 space-y-2">
+        <p className="px-4 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">
+          Intelligence System
         </p>
-        {navItems.map((item) => {
-          const isActive = pathname === item.href ||
-            (item.href !== "/" && item.href !== "/student" && pathname?.startsWith(item.href));
+        {mainNavItems.map((item) => {
+          const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
           const Icon = item.icon;
 
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`sidebar-nav-item ${isActive ? "active" : ""}`}
+              className={`flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all duration-300 group ${
+                isActive 
+                  ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
+                  : "text-gray-400 hover:bg-white/5 hover:text-white"
+              }`}
               id={`sidebar-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
             >
-              <Icon size={18} strokeWidth={isActive ? 2.5 : 1.8} />
-              <span>{item.label}</span>
+              <div className={`${isActive ? "text-emerald-400" : "text-gray-500 group-hover:text-white"} transition-colors`}>
+                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+              </div>
+              <span className="text-sm font-bold">{item.label}</span>
               {isActive && (
                 <motion.div
-                  layoutId="sidebar-indicator"
-                  className="ml-auto w-1.5 h-1.5 rounded-full bg-agri-green"
+                  layoutId="sidebar-active-indicator"
+                  className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"
                 />
               )}
             </Link>
@@ -109,24 +91,24 @@ export default function Sidebar() {
       </nav>
 
       {/* User Info + Logout */}
-      <div className="px-4 pt-4 border-t border-agri-border mt-4">
-        <div className="flex items-center gap-3 mb-3 px-2">
-          <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-            <span className="text-sm font-bold text-emerald-700">
+      <div className="p-6 border-t border-white/5">
+        <div className="flex items-center gap-3 mb-6 px-2">
+          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span className="text-sm font-bold text-emerald-400">
               {(user?.name || "U")[0].toUpperCase()}
             </span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-agri-text truncate">{user?.name || "User"}</p>
-            <p className="text-[10px] text-gray-400 truncate">{user?.email || ""}</p>
+            <p className="text-sm font-bold text-white truncate">{user?.name || "User"}</p>
+            <p className="text-[11px] text-gray-500 truncate font-medium">{user?.email || ""}</p>
           </div>
         </div>
         <button
           onClick={handleLogout}
-          className="sidebar-nav-item w-full text-red-500 hover:bg-red-50 hover:text-red-600"
+          className="flex items-center gap-4 w-full px-4 py-3.5 rounded-2xl text-rose-400 hover:bg-rose-500/10 transition-all font-bold text-sm"
           id="sidebar-logout"
         >
-          <LogOut size={16} />
+          <LogOut size={18} />
           <span>Sign Out</span>
         </button>
       </div>

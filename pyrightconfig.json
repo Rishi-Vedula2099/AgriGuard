@@ -1,0 +1,25 @@
+{
+  "pythonVersion": "3.13",
+  "pythonPlatform": "Windows",
+  "executionEnvironments": [
+    {
+      "root": "apps/backend",
+      "extraPaths": [
+        ".",
+        "C:\\Python313\\Lib\\site-packages"
+      ]
+    },
+    {
+      "root": "apps/ml-service",
+      "extraPaths": [
+        ".",
+        "C:\\Python313\\Lib\\site-packages"
+      ]
+    }
+  ],
+  "extraPaths": [
+    "apps/backend",
+    "apps/ml-service",
+    "C:\\Python313\\Lib\\site-packages"
+  ]
+}

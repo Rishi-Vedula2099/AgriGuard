@@ -4,7 +4,7 @@ Segment Router — field disease segmentation endpoint
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from segmentation.field_segmenter import segmenter
 
-router = APIRouter(prefix="/api/v1", tags=["Segmentation"])
+router = APIRouter(prefix="/v1", tags=["Segmentation"])
 
 
 @router.post("/segment")
